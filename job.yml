@@ -1,0 +1,31 @@
+!Job
+target: !Target
+  head: 54416235df9f0e408dd98211cb25df42ea19ec92
+  email: kou@clear-code.com
+  branch: taskpp
+  remote: https://github.com/kszucs/arrow.git
+  version: 0.9.1.dev377
+tasks:
+  ubuntu-artful: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - gir1.2-arrow-1.0_0.9.1.dev377-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.9.1.dev377-1_amd64.deb
+    - libarrow-dev_0.9.1.dev377-1_amd64.deb
+    - libarrow-glib-dev_0.9.1.dev377-1_amd64.deb
+    - libarrow-glib-doc_0.9.1.dev377-1_all.deb
+    - libarrow-glib0_0.9.1.dev377-1_amd64.deb
+    - libarrow-gpu-dev_0.9.1.dev377-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.9.1.dev377-1_amd64.deb
+    - libarrow-gpu-glib0_0.9.1.dev377-1_amd64.deb
+    - libarrow-gpu0_0.9.1.dev377-1_amd64.deb
+    - libarrow-python-dev_0.9.1.dev377-1_amd64.deb
+    - libarrow-python0_0.9.1.dev377-1_amd64.deb
+    - libarrow0_0.9.1.dev377-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-artful
+      package_format: deb
+    branch: build-7-ubuntu-artful
+    commit: d7dc3a969b1003e9a3c04ed6d4306a12a82e9508
+branch: build-7
