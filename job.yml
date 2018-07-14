@@ -1,0 +1,31 @@
+!Job
+target: !Target
+  head: e96ae455f02f7309412b3176d957fb24b403dace
+  email: kou@clear-code.com
+  branch: taskpp
+  remote: git@github.com:kszucs/arrow.git
+  version: 0.9.1.dev372
+tasks:
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - gir1.2-arrow-1.0_0.9.1.dev372-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.9.1.dev372-1_amd64.deb
+    - libarrow-dev_0.9.1.dev372-1_amd64.deb
+    - libarrow-glib-dev_0.9.1.dev372-1_amd64.deb
+    - libarrow-glib-doc_0.9.1.dev372-1_all.deb
+    - libarrow-glib0_0.9.1.dev372-1_amd64.deb
+    - libarrow-gpu-dev_0.9.1.dev372-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.9.1.dev372-1_amd64.deb
+    - libarrow-gpu-glib0_0.9.1.dev372-1_amd64.deb
+    - libarrow-gpu0_0.9.1.dev372-1_amd64.deb
+    - libarrow-python-dev_0.9.1.dev372-1_amd64.deb
+    - libarrow-python0_0.9.1.dev372-1_amd64.deb
+    - libarrow0_0.9.1.dev372-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      package_format: deb
+    branch: build-5-ubuntu-bionic
+    commit: 5c70f363bd59d4ac7621f8ce6cc7f0e6fa20fab2
+branch: build-5
