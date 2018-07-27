@@ -1,0 +1,186 @@
+!Job
+target: !DistTarget
+  archive_url: https://www.clear-code.com/~kou/apache-arrow-0.10.0-rc1.tar.gz
+  verify: true
+  email:
+  version: 0.10.0
+tasks:
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.10.0.1.el7.src.rpm
+    - arrow-debuginfo-0.10.0.1.el7.x86_64.rpm
+    - arrow-devel-0.10.0.1.el7.x86_64.rpm
+    - arrow-glib-devel-0.10.0.1.el7.x86_64.rpm
+    - arrow-glib-doc-0.10.0.1.el7.x86_64.rpm
+    - arrow-glib-libs-0.10.0.1.el7.x86_64.rpm
+    - arrow-libs-0.10.0.1.el7.x86_64.rpm
+    - arrow-python-devel-0.10.0.1.el7.x86_64.rpm
+    - arrow-python-libs-0.10.0.1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-15-centos-7
+    commit: 79b0e89521eab4e4cb1c71fb13fc8f51199c50dc
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.0-1-1.debian.tar.xz
+    - apache-arrow_0.10.0-1-1.dsc
+    - apache-arrow_0.10.0-1.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.0-1-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.0-1-1_amd64.deb
+    - libarrow-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-doc_0.10.0-1-1_all.deb
+    - libarrow-glib0_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-dev_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-glib0_0.10.0-1-1_amd64.deb
+    - libarrow-gpu10_0.10.0-1-1_amd64.deb
+    - libarrow-python-dev_0.10.0-1-1_amd64.deb
+    - libarrow-python10_0.10.0-1-1_amd64.deb
+    - libarrow10_0.10.0-1-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-15-ubuntu-xenial
+    commit: a2326435b02232744f0f8445d7c0eb5ef9f34339
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.0-1-1.debian.tar.xz
+    - apache-arrow_0.10.0-1-1.dsc
+    - apache-arrow_0.10.0-1.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.0-1-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.0-1-1_amd64.deb
+    - libarrow-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-doc_0.10.0-1-1_all.deb
+    - libarrow-glib0_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-dev_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-glib0_0.10.0-1-1_amd64.deb
+    - libarrow-gpu10_0.10.0-1-1_amd64.deb
+    - libarrow-python-dev_0.10.0-1-1_amd64.deb
+    - libarrow-python10_0.10.0-1-1_amd64.deb
+    - libarrow10_0.10.0-1-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-15-ubuntu-bionic
+    commit: 2206b861ffbcebbb90010daca784bb4053c2fa1c
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.0-1-1.debian.tar.gz
+    - apache-arrow_0.10.0-1-1.dsc
+    - apache-arrow_0.10.0-1.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.0-1-1_amd64.deb
+    - libarrow-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-doc_0.10.0-1-1_all.deb
+    - libarrow-glib0_0.10.0-1-1_amd64.deb
+    - libarrow10_0.10.0-1-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-15-ubuntu-trusty
+    commit: 37efd6a5887fe32dd1451657bac78756f90275f0
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.0-1-1.debian.tar.xz
+    - apache-arrow_0.10.0-1-1.dsc
+    - apache-arrow_0.10.0-1.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.0-1-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.0-1-1_amd64.deb
+    - libarrow-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-doc_0.10.0-1-1_all.deb
+    - libarrow-glib0-dbgsym_0.10.0-1-1_amd64.deb
+    - libarrow-glib0_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-dev_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-glib0-dbgsym_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-glib0_0.10.0-1-1_amd64.deb
+    - libarrow-gpu10-dbgsym_0.10.0-1-1_amd64.deb
+    - libarrow-gpu10_0.10.0-1-1_amd64.deb
+    - libarrow-python-dev_0.10.0-1-1_amd64.deb
+    - libarrow-python10-dbgsym_0.10.0-1-1_amd64.deb
+    - libarrow-python10_0.10.0-1-1_amd64.deb
+    - libarrow10-dbgsym_0.10.0-1-1_amd64.deb
+    - libarrow10_0.10.0-1-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-15-debian-stretch
+    commit: f9381da392d9f1d8f5fe7e59ed0a191f83a7da8d
+  ubuntu-artful: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.0-1-1.debian.tar.xz
+    - apache-arrow_0.10.0-1-1.dsc
+    - apache-arrow_0.10.0-1.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.0-1-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.0-1-1_amd64.deb
+    - libarrow-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-dev_0.10.0-1-1_amd64.deb
+    - libarrow-glib-doc_0.10.0-1-1_all.deb
+    - libarrow-glib0_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-dev_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.0-1-1_amd64.deb
+    - libarrow-gpu-glib0_0.10.0-1-1_amd64.deb
+    - libarrow-gpu10_0.10.0-1-1_amd64.deb
+    - libarrow-python-dev_0.10.0-1-1_amd64.deb
+    - libarrow-python10_0.10.0-1-1_amd64.deb
+    - libarrow10_0.10.0-1-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-artful
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-15-ubuntu-artful
+    commit: 827d8b21075df12fa3f2b4f1d1d7f9d3c23b0396
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.10.0.1.el6.src.rpm
+    - arrow-debuginfo-0.10.0.1.el6.x86_64.rpm
+    - arrow-devel-0.10.0.1.el6.x86_64.rpm
+    - arrow-libs-0.10.0.1.el6.x86_64.rpm
+    - arrow-python-devel-0.10.0.1.el6.x86_64.rpm
+    - arrow-python-libs-0.10.0.1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-15-centos-6
+    commit: 597157d8af561a4df94dc6acbc711e202af0659e
+branch: build-15
