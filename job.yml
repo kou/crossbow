@@ -1,0 +1,169 @@
+!Job
+target: !Target
+  head: 1d61da402eda306bcf846eda96abd41c94c48f03
+  email: kou@clear-code.com
+  branch: rpm-centos-suppress-bfd-warnings
+  remote: https://github.com/kou/arrow.git
+  version: 0.10.1.dev652
+tasks:
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.1.dev652-1.debian.tar.xz
+    - apache-arrow_0.10.1.dev652-1.dsc
+    - apache-arrow_0.10.1.dev652.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.1.dev652-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.1.dev652-1_amd64.deb
+    - libarrow-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-glib-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-glib-doc_0.10.1.dev652-1_all.deb
+    - libarrow-glib11_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-glib11_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu11_0.10.1.dev652-1_amd64.deb
+    - libarrow-python-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-python11_0.10.1.dev652-1_amd64.deb
+    - libarrow11_0.10.1.dev652-1_amd64.deb
+    - libparquet-dev_0.10.1.dev652-1_amd64.deb
+    - libparquet11_0.10.1.dev652-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-18-ubuntu-bionic
+    commit: a48bfb5e1022508fe04e7b6be17c5e61a8cb5f53
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.1.dev652-1.debian.tar.gz
+    - apache-arrow_0.10.1.dev652-1.dsc
+    - apache-arrow_0.10.1.dev652.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.1.dev652-1_amd64.deb
+    - libarrow-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-glib-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-glib-doc_0.10.1.dev652-1_all.deb
+    - libarrow-glib11_0.10.1.dev652-1_amd64.deb
+    - libarrow11_0.10.1.dev652-1_amd64.deb
+    - libparquet-dev_0.10.1.dev652-1_amd64.deb
+    - libparquet11_0.10.1.dev652-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-18-ubuntu-trusty
+    commit: 334a602581ac2b536e42f258567e89fef0645121
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.1.dev652-1.debian.tar.xz
+    - apache-arrow_0.10.1.dev652-1.dsc
+    - apache-arrow_0.10.1.dev652.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.1.dev652-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.1.dev652-1_amd64.deb
+    - libarrow-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-glib-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-glib-doc_0.10.1.dev652-1_all.deb
+    - libarrow-glib11_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-glib11_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu11_0.10.1.dev652-1_amd64.deb
+    - libarrow-python-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-python11_0.10.1.dev652-1_amd64.deb
+    - libarrow11_0.10.1.dev652-1_amd64.deb
+    - libparquet-dev_0.10.1.dev652-1_amd64.deb
+    - libparquet11_0.10.1.dev652-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-18-ubuntu-xenial
+    commit: 8734c700a76e6a6f2400c1fdc7082ce015a37ba1
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.10.1.dev652-1.el7.src.rpm
+    - arrow-debuginfo-0.10.1.dev652-1.el7.x86_64.rpm
+    - arrow-devel-0.10.1.dev652-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.10.1.dev652-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.10.1.dev652-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.10.1.dev652-1.el7.x86_64.rpm
+    - arrow-libs-0.10.1.dev652-1.el7.x86_64.rpm
+    - arrow-python-devel-0.10.1.dev652-1.el7.x86_64.rpm
+    - arrow-python-libs-0.10.1.dev652-1.el7.x86_64.rpm
+    - parquet-devel-0.10.1.dev652-1.el7.x86_64.rpm
+    - parquet-libs-0.10.1.dev652-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-18-centos-7
+    commit: 3d786dfa056aa5376bb0f987ebbaffdc8307d822
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.10.1.dev652-1.el6.src.rpm
+    - arrow-debuginfo-0.10.1.dev652-1.el6.x86_64.rpm
+    - arrow-devel-0.10.1.dev652-1.el6.x86_64.rpm
+    - arrow-libs-0.10.1.dev652-1.el6.x86_64.rpm
+    - arrow-python-devel-0.10.1.dev652-1.el6.x86_64.rpm
+    - arrow-python-libs-0.10.1.dev652-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-18-centos-6
+    commit: 8d73086f5b4de1d8284a0867b65910a129c0407a
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.1.dev652-1.debian.tar.xz
+    - apache-arrow_0.10.1.dev652-1.dsc
+    - apache-arrow_0.10.1.dev652.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.1.dev652-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.1.dev652-1_amd64.deb
+    - libarrow-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-glib-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-glib-doc_0.10.1.dev652-1_all.deb
+    - libarrow-glib11-dbgsym_0.10.1.dev652-1_amd64.deb
+    - libarrow-glib11_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-glib11-dbgsym_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu-glib11_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu11-dbgsym_0.10.1.dev652-1_amd64.deb
+    - libarrow-gpu11_0.10.1.dev652-1_amd64.deb
+    - libarrow-python-dev_0.10.1.dev652-1_amd64.deb
+    - libarrow-python11-dbgsym_0.10.1.dev652-1_amd64.deb
+    - libarrow-python11_0.10.1.dev652-1_amd64.deb
+    - libarrow11-dbgsym_0.10.1.dev652-1_amd64.deb
+    - libarrow11_0.10.1.dev652-1_amd64.deb
+    - libparquet-dev_0.10.1.dev652-1_amd64.deb
+    - libparquet11-dbgsym_0.10.1.dev652-1_amd64.deb
+    - libparquet11_0.10.1.dev652-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-18-debian-stretch
+    commit: bdb617648502e8521fdcc63506512dadb0d71247
+branch: build-18
