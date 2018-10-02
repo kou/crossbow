@@ -1,0 +1,169 @@
+!Job
+target: !Target
+  head: ab543969ab6dfd6d2a2e837837cab1339989d2bf
+  email: kou@clear-code.com
+  branch: packaging-parquet-glib-linux-packages
+  remote: https://github.com/kou/arrow.git
+  version: 0.10.1.dev673
+tasks:
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.10.1.dev673-1.el7.src.rpm
+    - arrow-debuginfo-0.10.1.dev673-1.el7.x86_64.rpm
+    - arrow-devel-0.10.1.dev673-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.10.1.dev673-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.10.1.dev673-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.10.1.dev673-1.el7.x86_64.rpm
+    - arrow-libs-0.10.1.dev673-1.el7.x86_64.rpm
+    - arrow-python-devel-0.10.1.dev673-1.el7.x86_64.rpm
+    - arrow-python-libs-0.10.1.dev673-1.el7.x86_64.rpm
+    - parquet-devel-0.10.1.dev673-1.el7.x86_64.rpm
+    - parquet-libs-0.10.1.dev673-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-19-centos-7
+    commit: 7377875a54fa4b9045e8e2335c651faf0fbc6142
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.10.1.dev673-1.el6.src.rpm
+    - arrow-debuginfo-0.10.1.dev673-1.el6.x86_64.rpm
+    - arrow-devel-0.10.1.dev673-1.el6.x86_64.rpm
+    - arrow-libs-0.10.1.dev673-1.el6.x86_64.rpm
+    - arrow-python-devel-0.10.1.dev673-1.el6.x86_64.rpm
+    - arrow-python-libs-0.10.1.dev673-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-19-centos-6
+    commit: ec2da547b09c79097d8e6461d4deaa69f42e1f90
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.1.dev673-1.debian.tar.xz
+    - apache-arrow_0.10.1.dev673-1.dsc
+    - apache-arrow_0.10.1.dev673.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.1.dev673-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.1.dev673-1_amd64.deb
+    - libarrow-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-glib-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-glib-doc_0.10.1.dev673-1_all.deb
+    - libarrow-glib11_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-glib11_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu11_0.10.1.dev673-1_amd64.deb
+    - libarrow-python-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-python11_0.10.1.dev673-1_amd64.deb
+    - libarrow11_0.10.1.dev673-1_amd64.deb
+    - libparquet-dev_0.10.1.dev673-1_amd64.deb
+    - libparquet11_0.10.1.dev673-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-19-ubuntu-xenial
+    commit: 0c1a10773b066ff23edf0fbe75e79608067559ac
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.1.dev673-1.debian.tar.gz
+    - apache-arrow_0.10.1.dev673-1.dsc
+    - apache-arrow_0.10.1.dev673.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.1.dev673-1_amd64.deb
+    - libarrow-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-glib-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-glib-doc_0.10.1.dev673-1_all.deb
+    - libarrow-glib11_0.10.1.dev673-1_amd64.deb
+    - libarrow11_0.10.1.dev673-1_amd64.deb
+    - libparquet-dev_0.10.1.dev673-1_amd64.deb
+    - libparquet11_0.10.1.dev673-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-19-ubuntu-trusty
+    commit: d67ef0ca6b61f2b8a760c5ddddb7817e132cd48e
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.1.dev673-1.debian.tar.xz
+    - apache-arrow_0.10.1.dev673-1.dsc
+    - apache-arrow_0.10.1.dev673.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.1.dev673-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.1.dev673-1_amd64.deb
+    - libarrow-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-glib-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-glib-doc_0.10.1.dev673-1_all.deb
+    - libarrow-glib11-dbgsym_0.10.1.dev673-1_amd64.deb
+    - libarrow-glib11_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-glib11-dbgsym_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-glib11_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu11-dbgsym_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu11_0.10.1.dev673-1_amd64.deb
+    - libarrow-python-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-python11-dbgsym_0.10.1.dev673-1_amd64.deb
+    - libarrow-python11_0.10.1.dev673-1_amd64.deb
+    - libarrow11-dbgsym_0.10.1.dev673-1_amd64.deb
+    - libarrow11_0.10.1.dev673-1_amd64.deb
+    - libparquet-dev_0.10.1.dev673-1_amd64.deb
+    - libparquet11-dbgsym_0.10.1.dev673-1_amd64.deb
+    - libparquet11_0.10.1.dev673-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-19-debian-stretch
+    commit: 2d12c9babb9a418555ab23f25d8da44a00649189
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.10.1.dev673-1.debian.tar.xz
+    - apache-arrow_0.10.1.dev673-1.dsc
+    - apache-arrow_0.10.1.dev673.orig.tar.gz
+    - gir1.2-arrow-1.0_0.10.1.dev673-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.10.1.dev673-1_amd64.deb
+    - libarrow-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-glib-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-glib-doc_0.10.1.dev673-1_all.deb
+    - libarrow-glib11_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu-glib11_0.10.1.dev673-1_amd64.deb
+    - libarrow-gpu11_0.10.1.dev673-1_amd64.deb
+    - libarrow-python-dev_0.10.1.dev673-1_amd64.deb
+    - libarrow-python11_0.10.1.dev673-1_amd64.deb
+    - libarrow11_0.10.1.dev673-1_amd64.deb
+    - libparquet-dev_0.10.1.dev673-1_amd64.deb
+    - libparquet11_0.10.1.dev673-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-19-ubuntu-bionic
+    commit: c3748956ecc1bdaa55c694fd37912be890fe9912
+branch: build-19
