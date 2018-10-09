@@ -1,0 +1,41 @@
+!Job
+target: !Target
+  head: 7344d83f75e2d641fa06b6e2e910da4e0653656f
+  email: kou@clear-code.com
+  branch: packaging-add-python37-wheels-0.11.0
+  remote: https://github.com/kou/arrow.git
+  version: 0.11.0
+tasks:
+  wheel-linux-cp37m: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.11.0-cp37-cp37m-manylinux1_x86_64.whl
+    params:
+      wheel_version: 0.31.1
+      python_version: 3.7,16
+    branch: build-40-wheel-linux-cp37m
+    commit: 3a02a11576a22ec7803dbdb8fe127a266576cf01
+  wheel-win-cp37m: !Task
+    platform: win
+    template: python-wheels/appveyor.yml
+    artifacts:
+    - pyarrow-0.11.0-cp37-cp37m-win_amd64.whl
+    params:
+      numpy_version: 1.14
+      python_version: 3.7
+    branch: build-40-wheel-win-cp37m
+    commit: 1b2d213cbc48794828b8d916596a0115b878ec92
+  wheel-osx-cp37m: !Task
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.11.0-cp37-cp37m-macosx_10_6_intel.whl
+    params:
+      numpy_version: 1.14
+      pandas_version: 0.23.0
+      python_version: 3.7
+      wheel_version: 0.31.1
+    branch: build-40-wheel-osx-cp37m
+    commit: 03dd1fd2e4466db920752d09d41374486ec999c3
+branch: build-40
