@@ -1,0 +1,224 @@
+!Job
+target: !Target
+  head: ffec2817a95f1ea5a5be7d78be6dbd76ea6785f6
+  email: kou@clear-code.com
+  branch: cpp-zstd
+  remote: https://github.com/kou/arrow.git
+  version: 0.11.1.dev224
+tasks:
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev224-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev224-1.dsc
+    - apache-arrow_0.11.1.dev224.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev224-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.11.1.dev224-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev224-1_amd64.deb
+    - libarrow-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev224-1_all.deb
+    - libarrow-glib12_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-glib12_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu12_0.11.1.dev224-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-python12_0.11.1.dev224-1_amd64.deb
+    - libarrow12_0.11.1.dev224-1_amd64.deb
+    - libparquet-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev224-1_all.deb
+    - libparquet-glib12_0.11.1.dev224-1_amd64.deb
+    - libparquet12_0.11.1.dev224-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-48-ubuntu-cosmic
+    commit: 9c31d2b612e91bea1c60f71bdecd8bc5b100ce82
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev224-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev224-1.dsc
+    - apache-arrow_0.11.1.dev224.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev224-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.11.1.dev224-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev224-1_amd64.deb
+    - libarrow-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev224-1_all.deb
+    - libarrow-glib12_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-glib12_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu12_0.11.1.dev224-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-python12_0.11.1.dev224-1_amd64.deb
+    - libarrow12_0.11.1.dev224-1_amd64.deb
+    - libparquet-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev224-1_all.deb
+    - libparquet-glib12_0.11.1.dev224-1_amd64.deb
+    - libparquet12_0.11.1.dev224-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-48-ubuntu-bionic
+    commit: 1a2d8f40864f27f05492963259730a69849aaa40
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev224-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev224-1.dsc
+    - apache-arrow_0.11.1.dev224.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev224-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.11.1.dev224-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev224-1_amd64.deb
+    - libarrow-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev224-1_all.deb
+    - libarrow-glib12_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-glib12_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu12_0.11.1.dev224-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-python12_0.11.1.dev224-1_amd64.deb
+    - libarrow12_0.11.1.dev224-1_amd64.deb
+    - libparquet-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev224-1_all.deb
+    - libparquet-glib12_0.11.1.dev224-1_amd64.deb
+    - libparquet12_0.11.1.dev224-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-48-ubuntu-xenial
+    commit: 46a0a461989470457535428accdbc296318896be
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.11.1.dev224-1.el6.src.rpm
+    - arrow-debuginfo-0.11.1.dev224-1.el6.x86_64.rpm
+    - arrow-devel-0.11.1.dev224-1.el6.x86_64.rpm
+    - arrow-libs-0.11.1.dev224-1.el6.x86_64.rpm
+    - arrow-python-devel-0.11.1.dev224-1.el6.x86_64.rpm
+    - arrow-python-libs-0.11.1.dev224-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-48-centos-6
+    commit: fd7643466d6225f088f7d5943ebda3003e28aaa9
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev224-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev224-1.dsc
+    - apache-arrow_0.11.1.dev224.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev224-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.11.1.dev224-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev224-1_amd64.deb
+    - libarrow-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev224-1_all.deb
+    - libarrow-glib12-dbgsym_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib12_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-glib12-dbgsym_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu-glib12_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu12-dbgsym_0.11.1.dev224-1_amd64.deb
+    - libarrow-gpu12_0.11.1.dev224-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-python12-dbgsym_0.11.1.dev224-1_amd64.deb
+    - libarrow-python12_0.11.1.dev224-1_amd64.deb
+    - libarrow12-dbgsym_0.11.1.dev224-1_amd64.deb
+    - libarrow12_0.11.1.dev224-1_amd64.deb
+    - libparquet-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev224-1_all.deb
+    - libparquet-glib12-dbgsym_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib12_0.11.1.dev224-1_amd64.deb
+    - libparquet12-dbgsym_0.11.1.dev224-1_amd64.deb
+    - libparquet12_0.11.1.dev224-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-48-debian-stretch
+    commit: e06b0ffdd92fd5f4d348d164079655a4efbc177d
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev224-1.debian.tar.gz
+    - apache-arrow_0.11.1.dev224-1.dsc
+    - apache-arrow_0.11.1.dev224.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev224-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev224-1_amd64.deb
+    - libarrow-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev224-1_all.deb
+    - libarrow-glib12_0.11.1.dev224-1_amd64.deb
+    - libarrow12_0.11.1.dev224-1_amd64.deb
+    - libparquet-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev224-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev224-1_all.deb
+    - libparquet-glib12_0.11.1.dev224-1_amd64.deb
+    - libparquet12_0.11.1.dev224-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-48-ubuntu-trusty
+    commit: 9f8d2c88deac616ddfc524b4757f15f72874b958
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.11.1.dev224-1.el7.src.rpm
+    - arrow-debuginfo-0.11.1.dev224-1.el7.x86_64.rpm
+    - arrow-devel-0.11.1.dev224-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.11.1.dev224-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.11.1.dev224-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.11.1.dev224-1.el7.x86_64.rpm
+    - arrow-libs-0.11.1.dev224-1.el7.x86_64.rpm
+    - arrow-python-devel-0.11.1.dev224-1.el7.x86_64.rpm
+    - arrow-python-libs-0.11.1.dev224-1.el7.x86_64.rpm
+    - parquet-devel-0.11.1.dev224-1.el7.x86_64.rpm
+    - parquet-glib-devel-0.11.1.dev224-1.el7.x86_64.rpm
+    - parquet-glib-doc-0.11.1.dev224-1.el7.x86_64.rpm
+    - parquet-glib-libs-0.11.1.dev224-1.el7.x86_64.rpm
+    - parquet-libs-0.11.1.dev224-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-48-centos-7
+    commit: ac543dcc0649d8bd0004cb30cd963f957284e497
+branch: build-48
