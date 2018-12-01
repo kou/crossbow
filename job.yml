@@ -1,0 +1,263 @@
+!Job
+target: !Target
+  head: 9f611a218da293e23fc5f9f9e335b332f1639d42
+  email: kou@clear-code.com
+  branch: linux-packages-plasma
+  remote: https://github.com/kou/arrow.git
+  version: 0.11.1.dev318
+tasks:
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev318-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev318-1.dsc
+    - apache-arrow_0.11.1.dev318.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev318-1_amd64.deb
+    - libarrow-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev318-1_all.deb
+    - libarrow-glib12_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-glib12_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu12_0.11.1.dev318-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-python12_0.11.1.dev318-1_amd64.deb
+    - libarrow12_0.11.1.dev318-1_amd64.deb
+    - libparquet-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev318-1_all.deb
+    - libparquet-glib12_0.11.1.dev318-1_amd64.deb
+    - libparquet12_0.11.1.dev318-1_amd64.deb
+    - libplasma-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev318-1_all.deb
+    - libplasma-glib12_0.11.1.dev318-1_amd64.deb
+    - libplasma12_0.11.1.dev318-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-50-ubuntu-xenial
+    commit: 07f3c803e10ab110ed70955b3174171a64e1f1cf
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev318-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev318-1.dsc
+    - apache-arrow_0.11.1.dev318.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev318-1_amd64.deb
+    - libarrow-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev318-1_all.deb
+    - libarrow-glib12_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-glib12_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu12_0.11.1.dev318-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-python12_0.11.1.dev318-1_amd64.deb
+    - libarrow12_0.11.1.dev318-1_amd64.deb
+    - libparquet-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev318-1_all.deb
+    - libparquet-glib12_0.11.1.dev318-1_amd64.deb
+    - libparquet12_0.11.1.dev318-1_amd64.deb
+    - libplasma-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev318-1_all.deb
+    - libplasma-glib12_0.11.1.dev318-1_amd64.deb
+    - libplasma12_0.11.1.dev318-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-50-ubuntu-cosmic
+    commit: c41c52de43f9e26bd33cc62c41b7fb168bfbe1a7
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev318-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev318-1.dsc
+    - apache-arrow_0.11.1.dev318.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev318-1_amd64.deb
+    - libarrow-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev318-1_all.deb
+    - libarrow-glib12-dbgsym_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib12_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-glib12-dbgsym_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-glib12_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu12-dbgsym_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu12_0.11.1.dev318-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-python12-dbgsym_0.11.1.dev318-1_amd64.deb
+    - libarrow-python12_0.11.1.dev318-1_amd64.deb
+    - libarrow12-dbgsym_0.11.1.dev318-1_amd64.deb
+    - libarrow12_0.11.1.dev318-1_amd64.deb
+    - libparquet-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev318-1_all.deb
+    - libparquet-glib12-dbgsym_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib12_0.11.1.dev318-1_amd64.deb
+    - libparquet12-dbgsym_0.11.1.dev318-1_amd64.deb
+    - libparquet12_0.11.1.dev318-1_amd64.deb
+    - libplasma-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev318-1_all.deb
+    - libplasma-glib12-dbgsym_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib12_0.11.1.dev318-1_amd64.deb
+    - libplasma12-dbgsym_0.11.1.dev318-1_amd64.deb
+    - libplasma12_0.11.1.dev318-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-50-debian-stretch
+    commit: 87accda3d61c1de3b3db78116b2c38928c905d1d
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev318-1.debian.tar.gz
+    - apache-arrow_0.11.1.dev318-1.dsc
+    - apache-arrow_0.11.1.dev318.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev318-1_amd64.deb
+    - libarrow-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev318-1_all.deb
+    - libarrow-glib12_0.11.1.dev318-1_amd64.deb
+    - libarrow12_0.11.1.dev318-1_amd64.deb
+    - libparquet-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev318-1_all.deb
+    - libparquet-glib12_0.11.1.dev318-1_amd64.deb
+    - libparquet12_0.11.1.dev318-1_amd64.deb
+    - libplasma-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev318-1_all.deb
+    - libplasma-glib12_0.11.1.dev318-1_amd64.deb
+    - libplasma12_0.11.1.dev318-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-50-ubuntu-trusty
+    commit: e3bd3c91c03af61b4051558ddc765f84ee0133e0
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev318-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev318-1.dsc
+    - apache-arrow_0.11.1.dev318.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-arrow-gpu-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev318-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev318-1_amd64.deb
+    - libarrow-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev318-1_all.deb
+    - libarrow-glib12_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu-glib12_0.11.1.dev318-1_amd64.deb
+    - libarrow-gpu12_0.11.1.dev318-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev318-1_amd64.deb
+    - libarrow-python12_0.11.1.dev318-1_amd64.deb
+    - libarrow12_0.11.1.dev318-1_amd64.deb
+    - libparquet-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev318-1_all.deb
+    - libparquet-glib12_0.11.1.dev318-1_amd64.deb
+    - libparquet12_0.11.1.dev318-1_amd64.deb
+    - libplasma-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev318-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev318-1_all.deb
+    - libplasma-glib12_0.11.1.dev318-1_amd64.deb
+    - libplasma12_0.11.1.dev318-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-50-ubuntu-bionic
+    commit: a1602a456bc3b76c2b11d221ad997d7dde875e50
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.11.1.dev318-1.el7.src.rpm
+    - arrow-debuginfo-0.11.1.dev318-1.el7.x86_64.rpm
+    - arrow-devel-0.11.1.dev318-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.11.1.dev318-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.11.1.dev318-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.11.1.dev318-1.el7.x86_64.rpm
+    - arrow-libs-0.11.1.dev318-1.el7.x86_64.rpm
+    - arrow-python-devel-0.11.1.dev318-1.el7.x86_64.rpm
+    - arrow-python-libs-0.11.1.dev318-1.el7.x86_64.rpm
+    - parquet-devel-0.11.1.dev318-1.el7.x86_64.rpm
+    - parquet-glib-devel-0.11.1.dev318-1.el7.x86_64.rpm
+    - parquet-glib-doc-0.11.1.dev318-1.el7.x86_64.rpm
+    - parquet-glib-libs-0.11.1.dev318-1.el7.x86_64.rpm
+    - parquet-libs-0.11.1.dev318-1.el7.x86_64.rpm
+    - plasma-devel-0.11.1.dev318-1.el7.x86_64.rpm
+    - plasma-glib-devel-0.11.1.dev318-1.el7.x86_64.rpm
+    - plasma-glib-doc-0.11.1.dev318-1.el7.x86_64.rpm
+    - plasma-glib-libs-0.11.1.dev318-1.el7.x86_64.rpm
+    - plasma-libs-0.11.1.dev318-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-50-centos-7
+    commit: 799d59a2116957ba3331383eb1c4c2923f852a0a
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.11.1.dev318-1.el6.src.rpm
+    - arrow-debuginfo-0.11.1.dev318-1.el6.x86_64.rpm
+    - arrow-devel-0.11.1.dev318-1.el6.x86_64.rpm
+    - arrow-libs-0.11.1.dev318-1.el6.x86_64.rpm
+    - arrow-python-devel-0.11.1.dev318-1.el6.x86_64.rpm
+    - arrow-python-libs-0.11.1.dev318-1.el6.x86_64.rpm
+    - plasma-devel-0.11.1.dev318-1.el6.x86_64.rpm
+    - plasma-libs-0.11.1.dev318-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-50-centos-6
+    commit: 84dc9538c5a5afe67079cad86db93edf7bb29aa7
+branch: build-50
