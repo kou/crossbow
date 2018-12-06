@@ -1,0 +1,263 @@
+!Job
+target: !Target
+  head: d16eb7133b2034c8ad0deb2adff72532e18edcc6
+  email: kou@clear-code.com
+  branch: ARROW-3209-rename-arrow-gpu-to-cuda
+  remote: https://github.com/pitrou/arrow.git
+  version: 0.8.1.dev1771
+tasks:
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.8.1.dev1771-1.debian.tar.xz
+    - apache-arrow_0.8.1.dev1771-1.dsc
+    - apache-arrow_0.8.1.dev1771.orig.tar.gz
+    - gir1.2-arrow-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-parquet-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-plasma-1.0_0.8.1.dev1771-1_amd64.deb
+    - libarrow-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-doc_0.8.1.dev1771-1_all.deb
+    - libarrow-glib12-dbgsym_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-glib12-dbgsym_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-glib12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda12-dbgsym_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-python-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-python12-dbgsym_0.8.1.dev1771-1_amd64.deb
+    - libarrow-python12_0.8.1.dev1771-1_amd64.deb
+    - libarrow12-dbgsym_0.8.1.dev1771-1_amd64.deb
+    - libarrow12_0.8.1.dev1771-1_amd64.deb
+    - libparquet-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-doc_0.8.1.dev1771-1_all.deb
+    - libparquet-glib12-dbgsym_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib12_0.8.1.dev1771-1_amd64.deb
+    - libparquet12-dbgsym_0.8.1.dev1771-1_amd64.deb
+    - libparquet12_0.8.1.dev1771-1_amd64.deb
+    - libplasma-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-doc_0.8.1.dev1771-1_all.deb
+    - libplasma-glib12-dbgsym_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib12_0.8.1.dev1771-1_amd64.deb
+    - libplasma12-dbgsym_0.8.1.dev1771-1_amd64.deb
+    - libplasma12_0.8.1.dev1771-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-54-debian-stretch
+    commit: b1e4868b60c362a6eced07bb39cc287788a3bd97
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.8.1.dev1771-1.debian.tar.xz
+    - apache-arrow_0.8.1.dev1771-1.dsc
+    - apache-arrow_0.8.1.dev1771.orig.tar.gz
+    - gir1.2-arrow-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-parquet-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-plasma-1.0_0.8.1.dev1771-1_amd64.deb
+    - libarrow-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-doc_0.8.1.dev1771-1_all.deb
+    - libarrow-glib12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-glib12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-python-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-python12_0.8.1.dev1771-1_amd64.deb
+    - libarrow12_0.8.1.dev1771-1_amd64.deb
+    - libparquet-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-doc_0.8.1.dev1771-1_all.deb
+    - libparquet-glib12_0.8.1.dev1771-1_amd64.deb
+    - libparquet12_0.8.1.dev1771-1_amd64.deb
+    - libplasma-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-doc_0.8.1.dev1771-1_all.deb
+    - libplasma-glib12_0.8.1.dev1771-1_amd64.deb
+    - libplasma12_0.8.1.dev1771-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-54-ubuntu-cosmic
+    commit: 1a95d4de2133fba7f4b663c1a5b1d25d49d6ef91
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.8.1.dev1771-1.el6.src.rpm
+    - arrow-debuginfo-0.8.1.dev1771-1.el6.x86_64.rpm
+    - arrow-devel-0.8.1.dev1771-1.el6.x86_64.rpm
+    - arrow-libs-0.8.1.dev1771-1.el6.x86_64.rpm
+    - arrow-python-devel-0.8.1.dev1771-1.el6.x86_64.rpm
+    - arrow-python-libs-0.8.1.dev1771-1.el6.x86_64.rpm
+    - plasma-devel-0.8.1.dev1771-1.el6.x86_64.rpm
+    - plasma-libs-0.8.1.dev1771-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-54-centos-6
+    commit: 65c64f28fee221d6344531925917f7e4e214af89
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.8.1.dev1771-1.debian.tar.xz
+    - apache-arrow_0.8.1.dev1771-1.dsc
+    - apache-arrow_0.8.1.dev1771.orig.tar.gz
+    - gir1.2-arrow-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-parquet-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-plasma-1.0_0.8.1.dev1771-1_amd64.deb
+    - libarrow-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-doc_0.8.1.dev1771-1_all.deb
+    - libarrow-glib12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-glib12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-python-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-python12_0.8.1.dev1771-1_amd64.deb
+    - libarrow12_0.8.1.dev1771-1_amd64.deb
+    - libparquet-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-doc_0.8.1.dev1771-1_all.deb
+    - libparquet-glib12_0.8.1.dev1771-1_amd64.deb
+    - libparquet12_0.8.1.dev1771-1_amd64.deb
+    - libplasma-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-doc_0.8.1.dev1771-1_all.deb
+    - libplasma-glib12_0.8.1.dev1771-1_amd64.deb
+    - libplasma12_0.8.1.dev1771-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-54-ubuntu-xenial
+    commit: 9d5f2896bedd490447ede809172bc12e67b984c0
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.8.1.dev1771-1.el7.src.rpm
+    - arrow-debuginfo-0.8.1.dev1771-1.el7.x86_64.rpm
+    - arrow-devel-0.8.1.dev1771-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.8.1.dev1771-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.8.1.dev1771-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.8.1.dev1771-1.el7.x86_64.rpm
+    - arrow-libs-0.8.1.dev1771-1.el7.x86_64.rpm
+    - arrow-python-devel-0.8.1.dev1771-1.el7.x86_64.rpm
+    - arrow-python-libs-0.8.1.dev1771-1.el7.x86_64.rpm
+    - parquet-devel-0.8.1.dev1771-1.el7.x86_64.rpm
+    - parquet-glib-devel-0.8.1.dev1771-1.el7.x86_64.rpm
+    - parquet-glib-doc-0.8.1.dev1771-1.el7.x86_64.rpm
+    - parquet-glib-libs-0.8.1.dev1771-1.el7.x86_64.rpm
+    - parquet-libs-0.8.1.dev1771-1.el7.x86_64.rpm
+    - plasma-devel-0.8.1.dev1771-1.el7.x86_64.rpm
+    - plasma-glib-devel-0.8.1.dev1771-1.el7.x86_64.rpm
+    - plasma-glib-doc-0.8.1.dev1771-1.el7.x86_64.rpm
+    - plasma-glib-libs-0.8.1.dev1771-1.el7.x86_64.rpm
+    - plasma-libs-0.8.1.dev1771-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-54-centos-7
+    commit: 168d96b6065590f2608c0b1d912c16fceedfb58c
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.8.1.dev1771-1.debian.tar.xz
+    - apache-arrow_0.8.1.dev1771-1.dsc
+    - apache-arrow_0.8.1.dev1771.orig.tar.gz
+    - gir1.2-arrow-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-parquet-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-plasma-1.0_0.8.1.dev1771-1_amd64.deb
+    - libarrow-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-doc_0.8.1.dev1771-1_all.deb
+    - libarrow-glib12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda-glib12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-cuda12_0.8.1.dev1771-1_amd64.deb
+    - libarrow-python-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-python12_0.8.1.dev1771-1_amd64.deb
+    - libarrow12_0.8.1.dev1771-1_amd64.deb
+    - libparquet-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-doc_0.8.1.dev1771-1_all.deb
+    - libparquet-glib12_0.8.1.dev1771-1_amd64.deb
+    - libparquet12_0.8.1.dev1771-1_amd64.deb
+    - libplasma-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-doc_0.8.1.dev1771-1_all.deb
+    - libplasma-glib12_0.8.1.dev1771-1_amd64.deb
+    - libplasma12_0.8.1.dev1771-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-54-ubuntu-bionic
+    commit: 2d93e233b6725cd1ecef27a7bdb24a2600dfd46f
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.8.1.dev1771-1.debian.tar.gz
+    - apache-arrow_0.8.1.dev1771-1.dsc
+    - apache-arrow_0.8.1.dev1771.orig.tar.gz
+    - gir1.2-arrow-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-parquet-1.0_0.8.1.dev1771-1_amd64.deb
+    - gir1.2-plasma-1.0_0.8.1.dev1771-1_amd64.deb
+    - libarrow-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libarrow-glib-doc_0.8.1.dev1771-1_all.deb
+    - libarrow-glib12_0.8.1.dev1771-1_amd64.deb
+    - libarrow12_0.8.1.dev1771-1_amd64.deb
+    - libparquet-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libparquet-glib-doc_0.8.1.dev1771-1_all.deb
+    - libparquet-glib12_0.8.1.dev1771-1_amd64.deb
+    - libparquet12_0.8.1.dev1771-1_amd64.deb
+    - libplasma-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-dev_0.8.1.dev1771-1_amd64.deb
+    - libplasma-glib-doc_0.8.1.dev1771-1_all.deb
+    - libplasma-glib12_0.8.1.dev1771-1_amd64.deb
+    - libplasma12_0.8.1.dev1771-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-54-ubuntu-trusty
+    commit: ffcbeaa58f2991180b3dcf90201762083719a133
+branch: build-54
