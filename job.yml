@@ -1,0 +1,289 @@
+!Job
+target: !Target
+  head: 364321e8b11bbbbaf362265c650a9eef28da0a75
+  email: kou@clear-code.com
+  branch: linux-packages-gandiva
+  remote: https://github.com/kou/arrow.git
+  version: 0.11.1.dev402
+tasks:
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev402-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev402-1.dsc
+    - apache-arrow_0.11.1.dev402.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev402-1_amd64.deb
+    - libarrow-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev402-1_all.deb
+    - libarrow-glib12_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-glib12_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda12_0.11.1.dev402-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-python12_0.11.1.dev402-1_amd64.deb
+    - libarrow12_0.11.1.dev402-1_amd64.deb
+    - libgandiva-dev_0.11.1.dev402-1_amd64.deb
+    - libgandiva-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libgandiva-glib-doc_0.11.1.dev402-1_all.deb
+    - libgandiva-glib12_0.11.1.dev402-1_amd64.deb
+    - libgandiva12_0.11.1.dev402-1_amd64.deb
+    - libparquet-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev402-1_all.deb
+    - libparquet-glib12_0.11.1.dev402-1_amd64.deb
+    - libparquet12_0.11.1.dev402-1_amd64.deb
+    - libplasma-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev402-1_all.deb
+    - libplasma-glib12_0.11.1.dev402-1_amd64.deb
+    - libplasma12_0.11.1.dev402-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-56-ubuntu-xenial
+    commit: aaea824a1aa780473ad313c057a21a0219159c52
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev402-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev402-1.dsc
+    - apache-arrow_0.11.1.dev402.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev402-1_amd64.deb
+    - libarrow-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev402-1_all.deb
+    - libarrow-glib12_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-glib12_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda12_0.11.1.dev402-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-python12_0.11.1.dev402-1_amd64.deb
+    - libarrow12_0.11.1.dev402-1_amd64.deb
+    - libgandiva-dev_0.11.1.dev402-1_amd64.deb
+    - libgandiva-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libgandiva-glib-doc_0.11.1.dev402-1_all.deb
+    - libgandiva-glib12_0.11.1.dev402-1_amd64.deb
+    - libgandiva12_0.11.1.dev402-1_amd64.deb
+    - libparquet-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev402-1_all.deb
+    - libparquet-glib12_0.11.1.dev402-1_amd64.deb
+    - libparquet12_0.11.1.dev402-1_amd64.deb
+    - libplasma-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev402-1_all.deb
+    - libplasma-glib12_0.11.1.dev402-1_amd64.deb
+    - libplasma12_0.11.1.dev402-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-56-ubuntu-cosmic
+    commit: 9cd4b773840407a749303e988b2982519a5a9606
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev402-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev402-1.dsc
+    - apache-arrow_0.11.1.dev402.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev402-1_amd64.deb
+    - libarrow-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev402-1_all.deb
+    - libarrow-glib12_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-glib12_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda12_0.11.1.dev402-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-python12_0.11.1.dev402-1_amd64.deb
+    - libarrow12_0.11.1.dev402-1_amd64.deb
+    - libgandiva-dev_0.11.1.dev402-1_amd64.deb
+    - libgandiva-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libgandiva-glib-doc_0.11.1.dev402-1_all.deb
+    - libgandiva-glib12_0.11.1.dev402-1_amd64.deb
+    - libgandiva12_0.11.1.dev402-1_amd64.deb
+    - libparquet-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev402-1_all.deb
+    - libparquet-glib12_0.11.1.dev402-1_amd64.deb
+    - libparquet12_0.11.1.dev402-1_amd64.deb
+    - libplasma-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev402-1_all.deb
+    - libplasma-glib12_0.11.1.dev402-1_amd64.deb
+    - libplasma12_0.11.1.dev402-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-56-ubuntu-bionic
+    commit: 8de99d0d9b5a9b22cbb19003ff90b638cbc340d5
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.11.1.dev402-1.el6.src.rpm
+    - arrow-debuginfo-0.11.1.dev402-1.el6.x86_64.rpm
+    - arrow-devel-0.11.1.dev402-1.el6.x86_64.rpm
+    - arrow-libs-0.11.1.dev402-1.el6.x86_64.rpm
+    - arrow-python-devel-0.11.1.dev402-1.el6.x86_64.rpm
+    - arrow-python-libs-0.11.1.dev402-1.el6.x86_64.rpm
+    - plasma-devel-0.11.1.dev402-1.el6.x86_64.rpm
+    - plasma-libs-0.11.1.dev402-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-56-centos-6
+    commit: 805ace87dbe8e2e993634837623a7446d5eb389c
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev402-1.debian.tar.gz
+    - apache-arrow_0.11.1.dev402-1.dsc
+    - apache-arrow_0.11.1.dev402.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev402-1_amd64.deb
+    - libarrow-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev402-1_all.deb
+    - libarrow-glib12_0.11.1.dev402-1_amd64.deb
+    - libarrow12_0.11.1.dev402-1_amd64.deb
+    - libparquet-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev402-1_all.deb
+    - libparquet-glib12_0.11.1.dev402-1_amd64.deb
+    - libparquet12_0.11.1.dev402-1_amd64.deb
+    - libplasma-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev402-1_all.deb
+    - libplasma-glib12_0.11.1.dev402-1_amd64.deb
+    - libplasma12_0.11.1.dev402-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-56-ubuntu-trusty
+    commit: 1f3dbcb43f1dcf29eb045ad64422bc9f1e5fbbd5
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev402-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev402-1.dsc
+    - apache-arrow_0.11.1.dev402.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev402-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev402-1_amd64.deb
+    - libarrow-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev402-1_all.deb
+    - libarrow-glib12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libarrow-glib12_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-glib12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda-glib12_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libarrow-cuda12_0.11.1.dev402-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev402-1_amd64.deb
+    - libarrow-python12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libarrow-python12_0.11.1.dev402-1_amd64.deb
+    - libarrow12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libarrow12_0.11.1.dev402-1_amd64.deb
+    - libgandiva-dev_0.11.1.dev402-1_amd64.deb
+    - libgandiva-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libgandiva-glib-doc_0.11.1.dev402-1_all.deb
+    - libgandiva-glib12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libgandiva-glib12_0.11.1.dev402-1_amd64.deb
+    - libgandiva12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libgandiva12_0.11.1.dev402-1_amd64.deb
+    - libparquet-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev402-1_all.deb
+    - libparquet-glib12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libparquet-glib12_0.11.1.dev402-1_amd64.deb
+    - libparquet12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libparquet12_0.11.1.dev402-1_amd64.deb
+    - libplasma-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev402-1_all.deb
+    - libplasma-glib12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libplasma-glib12_0.11.1.dev402-1_amd64.deb
+    - libplasma12-dbgsym_0.11.1.dev402-1_amd64.deb
+    - libplasma12_0.11.1.dev402-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-56-debian-stretch
+    commit: d5d320bdb5b8a8710d183d0c25b70e8684646e4f
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.11.1.dev402-1.el7.src.rpm
+    - arrow-debuginfo-0.11.1.dev402-1.el7.x86_64.rpm
+    - arrow-devel-0.11.1.dev402-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.11.1.dev402-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.11.1.dev402-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.11.1.dev402-1.el7.x86_64.rpm
+    - arrow-libs-0.11.1.dev402-1.el7.x86_64.rpm
+    - arrow-python-devel-0.11.1.dev402-1.el7.x86_64.rpm
+    - arrow-python-libs-0.11.1.dev402-1.el7.x86_64.rpm
+    - parquet-devel-0.11.1.dev402-1.el7.x86_64.rpm
+    - parquet-glib-devel-0.11.1.dev402-1.el7.x86_64.rpm
+    - parquet-glib-doc-0.11.1.dev402-1.el7.x86_64.rpm
+    - parquet-glib-libs-0.11.1.dev402-1.el7.x86_64.rpm
+    - parquet-libs-0.11.1.dev402-1.el7.x86_64.rpm
+    - plasma-devel-0.11.1.dev402-1.el7.x86_64.rpm
+    - plasma-glib-devel-0.11.1.dev402-1.el7.x86_64.rpm
+    - plasma-glib-doc-0.11.1.dev402-1.el7.x86_64.rpm
+    - plasma-glib-libs-0.11.1.dev402-1.el7.x86_64.rpm
+    - plasma-libs-0.11.1.dev402-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-56-centos-7
+    commit: b065f0d38d89d2f572a5f5a47893a4012cfc999d
+branch: build-56
