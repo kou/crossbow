@@ -1,0 +1,289 @@
+!Job
+target: !Target
+  head: fa621931bcb49d5b2b87181e4c3e3a6b1f23ea46
+  email: kou@clear-code.com
+  branch: linux-packages-gandiva
+  remote: https://github.com/kou/arrow.git
+  version: 0.11.1.dev474
+tasks:
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev474-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev474-1.dsc
+    - apache-arrow_0.11.1.dev474.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev474-1_amd64.deb
+    - libarrow-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev474-1_all.deb
+    - libarrow-glib12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib12_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-glib12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-glib12_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda12_0.11.1.dev474-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-python12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libarrow-python12_0.11.1.dev474-1_amd64.deb
+    - libarrow12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libarrow12_0.11.1.dev474-1_amd64.deb
+    - libgandiva-dev_0.11.1.dev474-1_amd64.deb
+    - libgandiva-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libgandiva-glib-doc_0.11.1.dev474-1_all.deb
+    - libgandiva-glib12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libgandiva-glib12_0.11.1.dev474-1_amd64.deb
+    - libgandiva12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libgandiva12_0.11.1.dev474-1_amd64.deb
+    - libparquet-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev474-1_all.deb
+    - libparquet-glib12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib12_0.11.1.dev474-1_amd64.deb
+    - libparquet12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libparquet12_0.11.1.dev474-1_amd64.deb
+    - libplasma-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev474-1_all.deb
+    - libplasma-glib12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib12_0.11.1.dev474-1_amd64.deb
+    - libplasma12-dbgsym_0.11.1.dev474-1_amd64.deb
+    - libplasma12_0.11.1.dev474-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-58-debian-stretch
+    commit: 8e964b57033dc89fe9f0ba6f91c239771657b7e6
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.11.1.dev474-1.el7.src.rpm
+    - arrow-debuginfo-0.11.1.dev474-1.el7.x86_64.rpm
+    - arrow-devel-0.11.1.dev474-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.11.1.dev474-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.11.1.dev474-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.11.1.dev474-1.el7.x86_64.rpm
+    - arrow-libs-0.11.1.dev474-1.el7.x86_64.rpm
+    - arrow-python-devel-0.11.1.dev474-1.el7.x86_64.rpm
+    - arrow-python-libs-0.11.1.dev474-1.el7.x86_64.rpm
+    - parquet-devel-0.11.1.dev474-1.el7.x86_64.rpm
+    - parquet-glib-devel-0.11.1.dev474-1.el7.x86_64.rpm
+    - parquet-glib-doc-0.11.1.dev474-1.el7.x86_64.rpm
+    - parquet-glib-libs-0.11.1.dev474-1.el7.x86_64.rpm
+    - parquet-libs-0.11.1.dev474-1.el7.x86_64.rpm
+    - plasma-devel-0.11.1.dev474-1.el7.x86_64.rpm
+    - plasma-glib-devel-0.11.1.dev474-1.el7.x86_64.rpm
+    - plasma-glib-doc-0.11.1.dev474-1.el7.x86_64.rpm
+    - plasma-glib-libs-0.11.1.dev474-1.el7.x86_64.rpm
+    - plasma-libs-0.11.1.dev474-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-58-centos-7
+    commit: cd5d9359fb6435d527ce586c80223bc42483c450
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev474-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev474-1.dsc
+    - apache-arrow_0.11.1.dev474.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev474-1_amd64.deb
+    - libarrow-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev474-1_all.deb
+    - libarrow-glib12_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-glib12_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda12_0.11.1.dev474-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-python12_0.11.1.dev474-1_amd64.deb
+    - libarrow12_0.11.1.dev474-1_amd64.deb
+    - libgandiva-dev_0.11.1.dev474-1_amd64.deb
+    - libgandiva-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libgandiva-glib-doc_0.11.1.dev474-1_all.deb
+    - libgandiva-glib12_0.11.1.dev474-1_amd64.deb
+    - libgandiva12_0.11.1.dev474-1_amd64.deb
+    - libparquet-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev474-1_all.deb
+    - libparquet-glib12_0.11.1.dev474-1_amd64.deb
+    - libparquet12_0.11.1.dev474-1_amd64.deb
+    - libplasma-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev474-1_all.deb
+    - libplasma-glib12_0.11.1.dev474-1_amd64.deb
+    - libplasma12_0.11.1.dev474-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-58-ubuntu-xenial
+    commit: 4fe055f220a1c34d8da9a56dac9c725b5e97db6c
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev474-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev474-1.dsc
+    - apache-arrow_0.11.1.dev474.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev474-1_amd64.deb
+    - libarrow-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev474-1_all.deb
+    - libarrow-glib12_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-glib12_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda12_0.11.1.dev474-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-python12_0.11.1.dev474-1_amd64.deb
+    - libarrow12_0.11.1.dev474-1_amd64.deb
+    - libgandiva-dev_0.11.1.dev474-1_amd64.deb
+    - libgandiva-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libgandiva-glib-doc_0.11.1.dev474-1_all.deb
+    - libgandiva-glib12_0.11.1.dev474-1_amd64.deb
+    - libgandiva12_0.11.1.dev474-1_amd64.deb
+    - libparquet-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev474-1_all.deb
+    - libparquet-glib12_0.11.1.dev474-1_amd64.deb
+    - libparquet12_0.11.1.dev474-1_amd64.deb
+    - libplasma-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev474-1_all.deb
+    - libplasma-glib12_0.11.1.dev474-1_amd64.deb
+    - libplasma12_0.11.1.dev474-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-58-ubuntu-bionic
+    commit: 19d8c510bd624d939fe7bb2dd6ac5543eb944746
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev474-1.debian.tar.xz
+    - apache-arrow_0.11.1.dev474-1.dsc
+    - apache-arrow_0.11.1.dev474.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev474-1_amd64.deb
+    - libarrow-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev474-1_all.deb
+    - libarrow-glib12_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda-glib12_0.11.1.dev474-1_amd64.deb
+    - libarrow-cuda12_0.11.1.dev474-1_amd64.deb
+    - libarrow-python-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-python12_0.11.1.dev474-1_amd64.deb
+    - libarrow12_0.11.1.dev474-1_amd64.deb
+    - libgandiva-dev_0.11.1.dev474-1_amd64.deb
+    - libgandiva-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libgandiva-glib-doc_0.11.1.dev474-1_all.deb
+    - libgandiva-glib12_0.11.1.dev474-1_amd64.deb
+    - libgandiva12_0.11.1.dev474-1_amd64.deb
+    - libparquet-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev474-1_all.deb
+    - libparquet-glib12_0.11.1.dev474-1_amd64.deb
+    - libparquet12_0.11.1.dev474-1_amd64.deb
+    - libplasma-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev474-1_all.deb
+    - libplasma-glib12_0.11.1.dev474-1_amd64.deb
+    - libplasma12_0.11.1.dev474-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-58-ubuntu-cosmic
+    commit: 1af613dd9fe0677be8faf999fdc4972ae7a76d2f
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.11.1.dev474-1.debian.tar.gz
+    - apache-arrow_0.11.1.dev474-1.dsc
+    - apache-arrow_0.11.1.dev474.orig.tar.gz
+    - gir1.2-arrow-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-parquet-1.0_0.11.1.dev474-1_amd64.deb
+    - gir1.2-plasma-1.0_0.11.1.dev474-1_amd64.deb
+    - libarrow-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libarrow-glib-doc_0.11.1.dev474-1_all.deb
+    - libarrow-glib12_0.11.1.dev474-1_amd64.deb
+    - libarrow12_0.11.1.dev474-1_amd64.deb
+    - libparquet-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libparquet-glib-doc_0.11.1.dev474-1_all.deb
+    - libparquet-glib12_0.11.1.dev474-1_amd64.deb
+    - libparquet12_0.11.1.dev474-1_amd64.deb
+    - libplasma-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-dev_0.11.1.dev474-1_amd64.deb
+    - libplasma-glib-doc_0.11.1.dev474-1_all.deb
+    - libplasma-glib12_0.11.1.dev474-1_amd64.deb
+    - libplasma12_0.11.1.dev474-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-58-ubuntu-trusty
+    commit: 3f756f12c50a6a3b6caba69ec33fa999809d123c
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.11.1.dev474-1.el6.src.rpm
+    - arrow-debuginfo-0.11.1.dev474-1.el6.x86_64.rpm
+    - arrow-devel-0.11.1.dev474-1.el6.x86_64.rpm
+    - arrow-libs-0.11.1.dev474-1.el6.x86_64.rpm
+    - arrow-python-devel-0.11.1.dev474-1.el6.x86_64.rpm
+    - arrow-python-libs-0.11.1.dev474-1.el6.x86_64.rpm
+    - plasma-devel-0.11.1.dev474-1.el6.x86_64.rpm
+    - plasma-libs-0.11.1.dev474-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-58-centos-6
+    commit: 6192f6938a28e044dda1caae2a200100c116e437
+branch: build-58
