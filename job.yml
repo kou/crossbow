@@ -1,0 +1,290 @@
+!Job
+target: !Target
+  head: a330ded9d57a17605b0bc0d1e57d0eda47ea7992
+  email: kou@clear-code.com
+  branch: linux-packages
+  remote: https://github.com/kou/arrow.git
+  version: 0.4.1.dev302
+  no_rc_version: 0.4.1.dev302
+tasks:
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev302-1.debian.tar.gz
+    - apache-arrow_0.4.1.dev302-1.dsc
+    - apache-arrow_0.4.1.dev302.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev302-1_amd64.deb
+    - libarrow-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev302-1_all.deb
+    - libarrow-glib13_0.4.1.dev302-1_amd64.deb
+    - libarrow13_0.4.1.dev302-1_amd64.deb
+    - libparquet-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev302-1_all.deb
+    - libparquet-glib13_0.4.1.dev302-1_amd64.deb
+    - libparquet13_0.4.1.dev302-1_amd64.deb
+    - libplasma-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev302-1_all.deb
+    - libplasma-glib13_0.4.1.dev302-1_amd64.deb
+    - libplasma13_0.4.1.dev302-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-61-ubuntu-trusty
+    commit: c9484eb8ea95a949336ee27e991b606137303903
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev302-1.debian.tar.xz
+    - apache-arrow_0.4.1.dev302-1.dsc
+    - apache-arrow_0.4.1.dev302.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev302-1_amd64.deb
+    - libarrow-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev302-1_all.deb
+    - libarrow-glib13_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-glib13_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda13_0.4.1.dev302-1_amd64.deb
+    - libarrow-python-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-python13_0.4.1.dev302-1_amd64.deb
+    - libarrow13_0.4.1.dev302-1_amd64.deb
+    - libgandiva-dev_0.4.1.dev302-1_amd64.deb
+    - libgandiva-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libgandiva-glib-doc_0.4.1.dev302-1_all.deb
+    - libgandiva-glib13_0.4.1.dev302-1_amd64.deb
+    - libgandiva13_0.4.1.dev302-1_amd64.deb
+    - libparquet-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev302-1_all.deb
+    - libparquet-glib13_0.4.1.dev302-1_amd64.deb
+    - libparquet13_0.4.1.dev302-1_amd64.deb
+    - libplasma-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev302-1_all.deb
+    - libplasma-glib13_0.4.1.dev302-1_amd64.deb
+    - libplasma13_0.4.1.dev302-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-61-ubuntu-cosmic
+    commit: 6fe018b7650b9b71c44c8c3b5d3c28328af07654
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.4.1.dev302-1.el6.src.rpm
+    - arrow-debuginfo-0.4.1.dev302-1.el6.x86_64.rpm
+    - arrow-devel-0.4.1.dev302-1.el6.x86_64.rpm
+    - arrow-libs-0.4.1.dev302-1.el6.x86_64.rpm
+    - arrow-python-devel-0.4.1.dev302-1.el6.x86_64.rpm
+    - arrow-python-libs-0.4.1.dev302-1.el6.x86_64.rpm
+    - plasma-devel-0.4.1.dev302-1.el6.x86_64.rpm
+    - plasma-libs-0.4.1.dev302-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-61-centos-6
+    commit: b437d85ee5dc48275e31784686bad39cedf378ba
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev302-1.debian.tar.xz
+    - apache-arrow_0.4.1.dev302-1.dsc
+    - apache-arrow_0.4.1.dev302.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev302-1_amd64.deb
+    - libarrow-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev302-1_all.deb
+    - libarrow-glib13_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-glib13_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda13_0.4.1.dev302-1_amd64.deb
+    - libarrow-python-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-python13_0.4.1.dev302-1_amd64.deb
+    - libarrow13_0.4.1.dev302-1_amd64.deb
+    - libgandiva-dev_0.4.1.dev302-1_amd64.deb
+    - libgandiva-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libgandiva-glib-doc_0.4.1.dev302-1_all.deb
+    - libgandiva-glib13_0.4.1.dev302-1_amd64.deb
+    - libgandiva13_0.4.1.dev302-1_amd64.deb
+    - libparquet-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev302-1_all.deb
+    - libparquet-glib13_0.4.1.dev302-1_amd64.deb
+    - libparquet13_0.4.1.dev302-1_amd64.deb
+    - libplasma-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev302-1_all.deb
+    - libplasma-glib13_0.4.1.dev302-1_amd64.deb
+    - libplasma13_0.4.1.dev302-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-61-ubuntu-bionic
+    commit: 10f083f1d57f43b47f5f33d233dd395593887e74
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.4.1.dev302-1.el7.src.rpm
+    - arrow-debuginfo-0.4.1.dev302-1.el7.x86_64.rpm
+    - arrow-devel-0.4.1.dev302-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.4.1.dev302-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.4.1.dev302-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.4.1.dev302-1.el7.x86_64.rpm
+    - arrow-libs-0.4.1.dev302-1.el7.x86_64.rpm
+    - arrow-python-devel-0.4.1.dev302-1.el7.x86_64.rpm
+    - arrow-python-libs-0.4.1.dev302-1.el7.x86_64.rpm
+    - parquet-devel-0.4.1.dev302-1.el7.x86_64.rpm
+    - parquet-glib-devel-0.4.1.dev302-1.el7.x86_64.rpm
+    - parquet-glib-doc-0.4.1.dev302-1.el7.x86_64.rpm
+    - parquet-glib-libs-0.4.1.dev302-1.el7.x86_64.rpm
+    - parquet-libs-0.4.1.dev302-1.el7.x86_64.rpm
+    - plasma-devel-0.4.1.dev302-1.el7.x86_64.rpm
+    - plasma-glib-devel-0.4.1.dev302-1.el7.x86_64.rpm
+    - plasma-glib-doc-0.4.1.dev302-1.el7.x86_64.rpm
+    - plasma-glib-libs-0.4.1.dev302-1.el7.x86_64.rpm
+    - plasma-libs-0.4.1.dev302-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-61-centos-7
+    commit: 65a27a5f95be910465cc0f710906339a4ef474bd
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev302-1.debian.tar.xz
+    - apache-arrow_0.4.1.dev302-1.dsc
+    - apache-arrow_0.4.1.dev302.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev302-1_amd64.deb
+    - libarrow-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev302-1_all.deb
+    - libarrow-glib13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib13_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-glib13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-glib13_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda13_0.4.1.dev302-1_amd64.deb
+    - libarrow-python-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-python13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libarrow-python13_0.4.1.dev302-1_amd64.deb
+    - libarrow13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libarrow13_0.4.1.dev302-1_amd64.deb
+    - libgandiva-dev_0.4.1.dev302-1_amd64.deb
+    - libgandiva-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libgandiva-glib-doc_0.4.1.dev302-1_all.deb
+    - libgandiva-glib13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libgandiva-glib13_0.4.1.dev302-1_amd64.deb
+    - libgandiva13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libgandiva13_0.4.1.dev302-1_amd64.deb
+    - libparquet-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev302-1_all.deb
+    - libparquet-glib13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib13_0.4.1.dev302-1_amd64.deb
+    - libparquet13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libparquet13_0.4.1.dev302-1_amd64.deb
+    - libplasma-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev302-1_all.deb
+    - libplasma-glib13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib13_0.4.1.dev302-1_amd64.deb
+    - libplasma13-dbgsym_0.4.1.dev302-1_amd64.deb
+    - libplasma13_0.4.1.dev302-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-61-debian-stretch
+    commit: 928b64fe173238616dd836e6b006cc2cda0f2580
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev302-1.debian.tar.xz
+    - apache-arrow_0.4.1.dev302-1.dsc
+    - apache-arrow_0.4.1.dev302.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev302-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev302-1_amd64.deb
+    - libarrow-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev302-1_all.deb
+    - libarrow-glib13_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda-glib13_0.4.1.dev302-1_amd64.deb
+    - libarrow-cuda13_0.4.1.dev302-1_amd64.deb
+    - libarrow-python-dev_0.4.1.dev302-1_amd64.deb
+    - libarrow-python13_0.4.1.dev302-1_amd64.deb
+    - libarrow13_0.4.1.dev302-1_amd64.deb
+    - libgandiva-dev_0.4.1.dev302-1_amd64.deb
+    - libgandiva-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libgandiva-glib-doc_0.4.1.dev302-1_all.deb
+    - libgandiva-glib13_0.4.1.dev302-1_amd64.deb
+    - libgandiva13_0.4.1.dev302-1_amd64.deb
+    - libparquet-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev302-1_all.deb
+    - libparquet-glib13_0.4.1.dev302-1_amd64.deb
+    - libparquet13_0.4.1.dev302-1_amd64.deb
+    - libplasma-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev302-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev302-1_all.deb
+    - libplasma-glib13_0.4.1.dev302-1_amd64.deb
+    - libplasma13_0.4.1.dev302-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-61-ubuntu-xenial
+    commit: b0bc36b9efd8820dba7d6cc4a32a9a0d0dff0514
+branch: build-61
