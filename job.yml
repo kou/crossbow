@@ -1,0 +1,290 @@
+!Job
+target: !Target
+  head: 1db208df8970b7a9ca908b676abab80d9289096c
+  email: kou@clear-code.com
+  branch: linux-packages
+  remote: https://github.com/kou/arrow.git
+  version: 0.4.1.dev320
+  no_rc_version: 0.4.1.dev320
+tasks:
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev320-1.debian.tar.xz
+    - apache-arrow_0.4.1.dev320-1.dsc
+    - apache-arrow_0.4.1.dev320.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev320-1_amd64.deb
+    - libarrow-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev320-1_all.deb
+    - libarrow-glib13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib13_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-glib13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-glib13_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda13_0.4.1.dev320-1_amd64.deb
+    - libarrow-python-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-python13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libarrow-python13_0.4.1.dev320-1_amd64.deb
+    - libarrow13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libarrow13_0.4.1.dev320-1_amd64.deb
+    - libgandiva-dev_0.4.1.dev320-1_amd64.deb
+    - libgandiva-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libgandiva-glib-doc_0.4.1.dev320-1_all.deb
+    - libgandiva-glib13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libgandiva-glib13_0.4.1.dev320-1_amd64.deb
+    - libgandiva13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libgandiva13_0.4.1.dev320-1_amd64.deb
+    - libparquet-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev320-1_all.deb
+    - libparquet-glib13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib13_0.4.1.dev320-1_amd64.deb
+    - libparquet13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libparquet13_0.4.1.dev320-1_amd64.deb
+    - libplasma-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev320-1_all.deb
+    - libplasma-glib13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib13_0.4.1.dev320-1_amd64.deb
+    - libplasma13-dbgsym_0.4.1.dev320-1_amd64.deb
+    - libplasma13_0.4.1.dev320-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-64-debian-stretch
+    commit: d2fafcbf8aead742d97b656ed0df55ee5e8b846e
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev320-1.debian.tar.xz
+    - apache-arrow_0.4.1.dev320-1.dsc
+    - apache-arrow_0.4.1.dev320.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev320-1_amd64.deb
+    - libarrow-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev320-1_all.deb
+    - libarrow-glib13_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-glib13_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda13_0.4.1.dev320-1_amd64.deb
+    - libarrow-python-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-python13_0.4.1.dev320-1_amd64.deb
+    - libarrow13_0.4.1.dev320-1_amd64.deb
+    - libgandiva-dev_0.4.1.dev320-1_amd64.deb
+    - libgandiva-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libgandiva-glib-doc_0.4.1.dev320-1_all.deb
+    - libgandiva-glib13_0.4.1.dev320-1_amd64.deb
+    - libgandiva13_0.4.1.dev320-1_amd64.deb
+    - libparquet-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev320-1_all.deb
+    - libparquet-glib13_0.4.1.dev320-1_amd64.deb
+    - libparquet13_0.4.1.dev320-1_amd64.deb
+    - libplasma-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev320-1_all.deb
+    - libplasma-glib13_0.4.1.dev320-1_amd64.deb
+    - libplasma13_0.4.1.dev320-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-64-ubuntu-bionic
+    commit: 3ced9fa082ef1437beb3066dce4a3eee6777877e
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.4.1.dev320-1.el7.src.rpm
+    - arrow-debuginfo-0.4.1.dev320-1.el7.x86_64.rpm
+    - arrow-devel-0.4.1.dev320-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.4.1.dev320-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.4.1.dev320-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.4.1.dev320-1.el7.x86_64.rpm
+    - arrow-libs-0.4.1.dev320-1.el7.x86_64.rpm
+    - arrow-python-devel-0.4.1.dev320-1.el7.x86_64.rpm
+    - arrow-python-libs-0.4.1.dev320-1.el7.x86_64.rpm
+    - parquet-devel-0.4.1.dev320-1.el7.x86_64.rpm
+    - parquet-glib-devel-0.4.1.dev320-1.el7.x86_64.rpm
+    - parquet-glib-doc-0.4.1.dev320-1.el7.x86_64.rpm
+    - parquet-glib-libs-0.4.1.dev320-1.el7.x86_64.rpm
+    - parquet-libs-0.4.1.dev320-1.el7.x86_64.rpm
+    - plasma-devel-0.4.1.dev320-1.el7.x86_64.rpm
+    - plasma-glib-devel-0.4.1.dev320-1.el7.x86_64.rpm
+    - plasma-glib-doc-0.4.1.dev320-1.el7.x86_64.rpm
+    - plasma-glib-libs-0.4.1.dev320-1.el7.x86_64.rpm
+    - plasma-libs-0.4.1.dev320-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-64-centos-7
+    commit: d67ececbdf168af8331f03be27f6db134d0dc07e
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.4.1.dev320-1.el6.src.rpm
+    - arrow-debuginfo-0.4.1.dev320-1.el6.x86_64.rpm
+    - arrow-devel-0.4.1.dev320-1.el6.x86_64.rpm
+    - arrow-libs-0.4.1.dev320-1.el6.x86_64.rpm
+    - arrow-python-devel-0.4.1.dev320-1.el6.x86_64.rpm
+    - arrow-python-libs-0.4.1.dev320-1.el6.x86_64.rpm
+    - plasma-devel-0.4.1.dev320-1.el6.x86_64.rpm
+    - plasma-libs-0.4.1.dev320-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-64-centos-6
+    commit: fee7d1e47c709238a824f18d1d2123d02cfe3e06
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev320-1.debian.tar.gz
+    - apache-arrow_0.4.1.dev320-1.dsc
+    - apache-arrow_0.4.1.dev320.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev320-1_amd64.deb
+    - libarrow-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev320-1_all.deb
+    - libarrow-glib13_0.4.1.dev320-1_amd64.deb
+    - libarrow13_0.4.1.dev320-1_amd64.deb
+    - libparquet-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev320-1_all.deb
+    - libparquet-glib13_0.4.1.dev320-1_amd64.deb
+    - libparquet13_0.4.1.dev320-1_amd64.deb
+    - libplasma-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev320-1_all.deb
+    - libplasma-glib13_0.4.1.dev320-1_amd64.deb
+    - libplasma13_0.4.1.dev320-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-64-ubuntu-trusty
+    commit: 26d49c3b6ab627696bdfaeeb8bfdce8237fa7305
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev320-1.debian.tar.xz
+    - apache-arrow_0.4.1.dev320-1.dsc
+    - apache-arrow_0.4.1.dev320.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev320-1_amd64.deb
+    - libarrow-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev320-1_all.deb
+    - libarrow-glib13_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-glib13_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda13_0.4.1.dev320-1_amd64.deb
+    - libarrow-python-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-python13_0.4.1.dev320-1_amd64.deb
+    - libarrow13_0.4.1.dev320-1_amd64.deb
+    - libgandiva-dev_0.4.1.dev320-1_amd64.deb
+    - libgandiva-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libgandiva-glib-doc_0.4.1.dev320-1_all.deb
+    - libgandiva-glib13_0.4.1.dev320-1_amd64.deb
+    - libgandiva13_0.4.1.dev320-1_amd64.deb
+    - libparquet-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev320-1_all.deb
+    - libparquet-glib13_0.4.1.dev320-1_amd64.deb
+    - libparquet13_0.4.1.dev320-1_amd64.deb
+    - libplasma-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev320-1_all.deb
+    - libplasma-glib13_0.4.1.dev320-1_amd64.deb
+    - libplasma13_0.4.1.dev320-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-64-ubuntu-cosmic
+    commit: 3b50eaf848eacaef9be1e740e896e218498391e4
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.4.1.dev320-1.debian.tar.xz
+    - apache-arrow_0.4.1.dev320-1.dsc
+    - apache-arrow_0.4.1.dev320.orig.tar.gz
+    - gir1.2-arrow-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-parquet-1.0_0.4.1.dev320-1_amd64.deb
+    - gir1.2-plasma-1.0_0.4.1.dev320-1_amd64.deb
+    - libarrow-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-glib-doc_0.4.1.dev320-1_all.deb
+    - libarrow-glib13_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda-glib13_0.4.1.dev320-1_amd64.deb
+    - libarrow-cuda13_0.4.1.dev320-1_amd64.deb
+    - libarrow-python-dev_0.4.1.dev320-1_amd64.deb
+    - libarrow-python13_0.4.1.dev320-1_amd64.deb
+    - libarrow13_0.4.1.dev320-1_amd64.deb
+    - libgandiva-dev_0.4.1.dev320-1_amd64.deb
+    - libgandiva-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libgandiva-glib-doc_0.4.1.dev320-1_all.deb
+    - libgandiva-glib13_0.4.1.dev320-1_amd64.deb
+    - libgandiva13_0.4.1.dev320-1_amd64.deb
+    - libparquet-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libparquet-glib-doc_0.4.1.dev320-1_all.deb
+    - libparquet-glib13_0.4.1.dev320-1_amd64.deb
+    - libparquet13_0.4.1.dev320-1_amd64.deb
+    - libplasma-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-dev_0.4.1.dev320-1_amd64.deb
+    - libplasma-glib-doc_0.4.1.dev320-1_all.deb
+    - libplasma-glib13_0.4.1.dev320-1_amd64.deb
+    - libplasma13_0.4.1.dev320-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-64-ubuntu-xenial
+    commit: 819d8902f68f8f1d12a1aea9e9e32b536073bdf6
+branch: build-64
