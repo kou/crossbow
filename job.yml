@@ -1,0 +1,132 @@
+!Job
+target: !Target
+  head: ca2f331d625990beb36c98ea01f7d442f2075a84
+  email: kou@clear-code.com
+  branch: python-wheel-gandiva-whindows
+  remote: https://github.com/kou/arrow.git
+  version: 0.13.0-rc0
+  no_rc_version: 0.13.0
+tasks:
+  wheel-linux-cp27m: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp27-cp27m-manylinux1_x86_64.whl
+    params:
+      python_version: 2.7
+      unicode_width: 16
+      test_docker_images: []
+    branch: build-66-wheel-linux-cp27m
+    commit: 93854cba60a4c3405b8a6773d12f4686636b8a1c
+  wheel-osx-cp35m: !Task
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.13.0-cp35-cp35m-macosx_10_6_intel.whl
+    params:
+      python_version: 3.5
+    branch: build-66-wheel-osx-cp35m
+    commit: eb42569340cbbc6d4a5445cf85a2471ed7e846aa
+  wheel-win-cp37m: !Task
+    platform: win
+    template: python-wheels/appveyor.yml
+    artifacts:
+    - pyarrow-0.13.0-cp37-cp37m-win_amd64.whl
+    params:
+      python_version: 3.7
+    branch: build-66-wheel-win-cp37m
+    commit: 1622f5a1851ea616f679fb2ed74361f1daf78e2f
+  wheel-osx-cp36m: !Task
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.13.0-cp36-cp36m-macosx_10_6_intel.whl
+    params:
+      python_version: 3.6
+    branch: build-66-wheel-osx-cp36m
+    commit: 23606c76ff8e661a156c3c32a1eff78642558354
+  wheel-win-cp36m: !Task
+    platform: win
+    template: python-wheels/appveyor.yml
+    artifacts:
+    - pyarrow-0.13.0-cp36-cp36m-win_amd64.whl
+    params:
+      python_version: 3.6
+    branch: build-66-wheel-win-cp36m
+    commit: b7c86b4890892198f7929f7fcf7a8cf931684234
+  wheel-win-cp35m: !Task
+    platform: win
+    template: python-wheels/appveyor.yml
+    artifacts:
+    - pyarrow-0.13.0-cp35-cp35m-win_amd64.whl
+    params:
+      python_version: 3.5
+    branch: build-66-wheel-win-cp35m
+    commit: 73c6c88810da2bc2b4a75dbc6954cb3dc4e6d17a
+  wheel-linux-cp37m: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp37-cp37m-manylinux1_x86_64.whl
+    params:
+      python_version: 3.7
+      unicode_width: 16
+      test_docker_images:
+      - python:3.7-slim
+    branch: build-66-wheel-linux-cp37m
+    commit: 65f16adbbc2d2edf9e363ae3a9764ba402addc0e
+  wheel-linux-cp35m: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp35-cp35m-manylinux1_x86_64.whl
+    params:
+      python_version: 3.5
+      unicode_width: 16
+      test_docker_images:
+      - python:3.5-slim
+    branch: build-66-wheel-linux-cp35m
+    commit: 12d0dcc06d46de9d81392be49632e14ac71a732a
+  wheel-osx-cp27m: !Task
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.13.0-cp27-cp27m-macosx_10_6_intel.whl
+    params:
+      python_version: 2.7
+    branch: build-66-wheel-osx-cp27m
+    commit: 805c1ff86bc45dd8d6af37d8df1a6cc2b8d9924d
+  wheel-linux-cp36m: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp36-cp36m-manylinux1_x86_64.whl
+    params:
+      python_version: 3.6
+      unicode_width: 16
+      test_docker_images:
+      - python:3.6-slim
+    branch: build-66-wheel-linux-cp36m
+    commit: 10640099cf0cc6615bb585f330ba4b0dcb0b1198
+  wheel-osx-cp37m: !Task
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.13.0-cp37-cp37m-macosx_10_6_intel.whl
+    params:
+      python_version: 3.7
+    branch: build-66-wheel-osx-cp37m
+    commit: c038af3540aa0911b79beef80ce4cf8b594c6636
+  wheel-linux-cp27mu: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp27-cp27mu-manylinux1_x86_64.whl
+    params:
+      python_version: 2.7
+      unicode_width: 32
+      test_docker_images:
+      - python:2.7-slim    # debian ucs4
+    branch: build-66-wheel-linux-cp27mu
+    commit: 3e27fd6d5bb1cd17a3bb4d80123adc038b98e338
+branch: build-66
