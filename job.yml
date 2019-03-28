@@ -1,0 +1,492 @@
+!Job
+target: !Target
+  head: dfb9e7af3cd92722893a3819b6676dfdef08f896
+  email: kou@clear-code.com
+  branch: apache-arrow-0.13.0-rc4
+  remote: https://github.com/kou/arrow.git
+  version: 0.13.0-rc4
+  no_rc_version: 0.13.0
+tasks:
+  conda-win-vs2015-py36: !Task
+    platform: win
+    template: conda-recipes/appveyor.yml
+    artifacts:
+    - arrow-cpp-0.13.0-py36_vc14(h[a-z0-9]+)_0.tar.bz2
+    - pyarrow-0.13.0-py36(h[a-z0-9]+)_0.tar.bz2
+    params:
+      config: win_c_compilervs2015cxx_compilervs2015python3.6vc14
+    branch: build-72-conda-win-vs2015-py36
+    commit: 26e9f49bedc43e0b28f64ccb396d193a10a7dfb7
+  wheel-win-cp35m: !Task
+    platform: win
+    template: python-wheels/appveyor.yml
+    artifacts:
+    - pyarrow-0.13.0-cp35-cp35m-win_amd64.whl
+    params:
+      python_version: 3.5
+    branch: build-72-wheel-win-cp35m
+    commit: 2c74f422f5d6936236fd33a71f4f9a60095ba68e
+  wheel-linux-cp27mu: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp27-cp27mu-manylinux1_x86_64.whl
+    params:
+      python_version: 2.7
+      unicode_width: 32
+      test_docker_images:
+      - python:2.7-slim    # debian ucs4
+    branch: build-72-wheel-linux-cp27mu
+    commit: 1a240f67565a3d7af746bd3ee5d3e991bee739aa
+  wheel-osx-cp36m: !Task
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.13.0-cp36-cp36m-macosx_10_6_intel.whl
+    params:
+      python_version: 3.6
+    branch: build-72-wheel-osx-cp36m
+    commit: 0ccffd82af162436ea4fae435b569877ae6df25d
+  wheel-win-cp36m: !Task
+    platform: win
+    template: python-wheels/appveyor.yml
+    artifacts:
+    - pyarrow-0.13.0-cp36-cp36m-win_amd64.whl
+    params:
+      python_version: 3.6
+    branch: build-72-wheel-win-cp36m
+    commit: cfd8dd402ddbb3d38caf764ce45b6b6202c1dfa6
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.13.0-1.el6.src.rpm
+    - arrow-debuginfo-0.13.0-1.el6.x86_64.rpm
+    - arrow-devel-0.13.0-1.el6.x86_64.rpm
+    - arrow-libs-0.13.0-1.el6.x86_64.rpm
+    - arrow-python-devel-0.13.0-1.el6.x86_64.rpm
+    - arrow-python-libs-0.13.0-1.el6.x86_64.rpm
+    - plasma-devel-0.13.0-1.el6.x86_64.rpm
+    - plasma-libs-0.13.0-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-72-centos-6
+    commit: d22b29fd214c11aa01eb07a7d662d633b4bc12f3
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.13.0-1.el7.src.rpm
+    - arrow-debuginfo-0.13.0-1.el7.x86_64.rpm
+    - arrow-devel-0.13.0-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.13.0-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.13.0-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.13.0-1.el7.x86_64.rpm
+    - arrow-libs-0.13.0-1.el7.x86_64.rpm
+    - arrow-python-devel-0.13.0-1.el7.x86_64.rpm
+    - arrow-python-libs-0.13.0-1.el7.x86_64.rpm
+    - parquet-devel-0.13.0-1.el7.x86_64.rpm
+    - parquet-glib-devel-0.13.0-1.el7.x86_64.rpm
+    - parquet-glib-doc-0.13.0-1.el7.x86_64.rpm
+    - parquet-glib-libs-0.13.0-1.el7.x86_64.rpm
+    - parquet-libs-0.13.0-1.el7.x86_64.rpm
+    - plasma-devel-0.13.0-1.el7.x86_64.rpm
+    - plasma-glib-devel-0.13.0-1.el7.x86_64.rpm
+    - plasma-glib-doc-0.13.0-1.el7.x86_64.rpm
+    - plasma-glib-libs-0.13.0-1.el7.x86_64.rpm
+    - plasma-libs-0.13.0-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-72-centos-7
+    commit: d2ee3c9884aec7a5ad5222da11d10ed8802b3fd5
+  wheel-linux-cp27m: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp27-cp27m-manylinux1_x86_64.whl
+    params:
+      python_version: 2.7
+      unicode_width: 16
+      test_docker_images: []
+    branch: build-72-wheel-linux-cp27m
+    commit: b8a7dabc14b299b961c72251be0aea30c43cbd23
+  wheel-linux-cp36m: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp36-cp36m-manylinux1_x86_64.whl
+    params:
+      python_version: 3.6
+      unicode_width: 16
+      test_docker_images:
+      - python:3.6-slim
+    branch: build-72-wheel-linux-cp36m
+    commit: 31527efd893b1f5ee4ee4d674d27cf64111124e2
+  conda-osx-clang-py27: !Task
+    platform: osx
+    template: conda-recipes/travis.osx.yml
+    artifacts:
+    - arrow-cpp-0.13.0-py27(h[a-z0-9]+)_0.tar.bz2
+    - pyarrow-0.13.0-py27(h[a-z0-9]+)_0.tar.bz2
+    params:
+      config: osx_python2.7
+    branch: build-72-conda-osx-clang-py27
+    commit: 00b61e398e4706175c17137b7850c4c7868bfcea
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0-1.debian.tar.xz
+    - apache-arrow_0.13.0-1.dsc
+    - apache-arrow_0.13.0.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0-1_amd64.deb
+    - libarrow-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-doc_0.13.0-1_all.deb
+    - libarrow-glib13_0.13.0-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0-1_amd64.deb
+    - libarrow-cuda-glib13_0.13.0-1_amd64.deb
+    - libarrow-cuda13_0.13.0-1_amd64.deb
+    - libarrow-python-dev_0.13.0-1_amd64.deb
+    - libarrow-python13_0.13.0-1_amd64.deb
+    - libarrow13_0.13.0-1_amd64.deb
+    - libgandiva-dev_0.13.0-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0-1_all.deb
+    - libgandiva-glib13_0.13.0-1_amd64.deb
+    - libgandiva13_0.13.0-1_amd64.deb
+    - libparquet-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-doc_0.13.0-1_all.deb
+    - libparquet-glib13_0.13.0-1_amd64.deb
+    - libparquet13_0.13.0-1_amd64.deb
+    - libplasma-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-doc_0.13.0-1_all.deb
+    - libplasma-glib13_0.13.0-1_amd64.deb
+    - libplasma13_0.13.0-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-72-ubuntu-cosmic
+    commit: e2d55e7f4e11b04d64c2d3228151a7f73529d121
+  conda-linux-gcc-py37: !Task
+    platform: linux
+    template: conda-recipes/travis.linux.yml
+    artifacts:
+    - arrow-cpp-0.13.0-py37(h[a-z0-9]+)_0.tar.bz2
+    - pyarrow-0.13.0-py37(h[a-z0-9]+)_0.tar.bz2
+    params:
+      config: linux_python3.7
+    branch: build-72-conda-linux-gcc-py37
+    commit: b04ca7c49871d2972fd2a284483f6f439cd47d2b
+  conda-win-vs2015-py37: !Task
+    platform: win
+    template: conda-recipes/appveyor.yml
+    artifacts:
+    - arrow-cpp-0.13.0-py37_vc14(h[a-z0-9]+)_0.tar.bz2
+    - pyarrow-0.13.0-py37(h[a-z0-9]+)_0.tar.bz2
+    params:
+      config: win_c_compilervs2015cxx_compilervs2015python3.7vc14
+    branch: build-72-conda-win-vs2015-py37
+    commit: 4ffb4c950a8c30fbbdde38e5ee26c4fa9f83bc90
+  wheel-win-cp37m: !Task
+    platform: win
+    template: python-wheels/appveyor.yml
+    artifacts:
+    - pyarrow-0.13.0-cp37-cp37m-win_amd64.whl
+    params:
+      python_version: 3.7
+    branch: build-72-wheel-win-cp37m
+    commit: 7a384b07c0b251f5cd87cff2bc726db684ce3086
+  wheel-linux-cp37m: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp37-cp37m-manylinux1_x86_64.whl
+    params:
+      python_version: 3.7
+      unicode_width: 16
+      test_docker_images:
+      - python:3.7-slim
+    branch: build-72-wheel-linux-cp37m
+    commit: 80f87fee8577476524f3e43c8a3c7f063d709159
+  wheel-osx-cp27m: !Task
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.13.0-cp27-cp27m-macosx_10_6_intel.whl
+    params:
+      python_version: 2.7
+    branch: build-72-wheel-osx-cp27m
+    commit: 3db1f648fe4fa8b87afaf2c66d41c73e6cd6f718
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0-1.debian.tar.xz
+    - apache-arrow_0.13.0-1.dsc
+    - apache-arrow_0.13.0.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0-1_amd64.deb
+    - libarrow-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-doc_0.13.0-1_all.deb
+    - libarrow-glib13_0.13.0-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0-1_amd64.deb
+    - libarrow-cuda-glib13_0.13.0-1_amd64.deb
+    - libarrow-cuda13_0.13.0-1_amd64.deb
+    - libarrow-python-dev_0.13.0-1_amd64.deb
+    - libarrow-python13_0.13.0-1_amd64.deb
+    - libarrow13_0.13.0-1_amd64.deb
+    - libgandiva-dev_0.13.0-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0-1_all.deb
+    - libgandiva-glib13_0.13.0-1_amd64.deb
+    - libgandiva13_0.13.0-1_amd64.deb
+    - libparquet-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-doc_0.13.0-1_all.deb
+    - libparquet-glib13_0.13.0-1_amd64.deb
+    - libparquet13_0.13.0-1_amd64.deb
+    - libplasma-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-doc_0.13.0-1_all.deb
+    - libplasma-glib13_0.13.0-1_amd64.deb
+    - libplasma13_0.13.0-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-72-ubuntu-bionic
+    commit: a7e91233e6be64b2c591cfa1e2a8024c6c7cbfdf
+  conda-osx-clang-py36: !Task
+    platform: osx
+    template: conda-recipes/travis.osx.yml
+    artifacts:
+    - arrow-cpp-0.13.0-py36(h[a-z0-9]+)_0.tar.bz2
+    - pyarrow-0.13.0-py36(h[a-z0-9]+)_0.tar.bz2
+    params:
+      config: osx_python3.6
+    branch: build-72-conda-osx-clang-py36
+    commit: e3930d7def11754a5413c53b2ee0b179bb551796
+  wheel-osx-cp37m: !Task
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.13.0-cp37-cp37m-macosx_10_6_intel.whl
+    params:
+      python_version: 3.7
+    branch: build-72-wheel-osx-cp37m
+    commit: 9a4c6ecd1c02ea98a285aa24ef417fc902809a6f
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0-1.debian.tar.gz
+    - apache-arrow_0.13.0-1.dsc
+    - apache-arrow_0.13.0.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0-1_amd64.deb
+    - libarrow-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-doc_0.13.0-1_all.deb
+    - libarrow-glib13_0.13.0-1_amd64.deb
+    - libarrow13_0.13.0-1_amd64.deb
+    - libparquet-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-doc_0.13.0-1_all.deb
+    - libparquet-glib13_0.13.0-1_amd64.deb
+    - libparquet13_0.13.0-1_amd64.deb
+    - libplasma-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-doc_0.13.0-1_all.deb
+    - libplasma-glib13_0.13.0-1_amd64.deb
+    - libplasma13_0.13.0-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-72-ubuntu-trusty
+    commit: 53600dca30afac48e480add48a3cf17a3f5acad9
+  conda-linux-gcc-py36: !Task
+    platform: linux
+    template: conda-recipes/travis.linux.yml
+    artifacts:
+    - arrow-cpp-0.13.0-py36(h[a-z0-9]+)_0.tar.bz2
+    - pyarrow-0.13.0-py36(h[a-z0-9]+)_0.tar.bz2
+    params:
+      config: linux_python3.6
+    branch: build-72-conda-linux-gcc-py36
+    commit: df58f9197b28533dadbca73e61ff749f1fe5316a
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0-1.debian.tar.xz
+    - apache-arrow_0.13.0-1.dsc
+    - apache-arrow_0.13.0.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0-1_amd64.deb
+    - libarrow-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-doc_0.13.0-1_all.deb
+    - libarrow-glib13_0.13.0-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0-1_amd64.deb
+    - libarrow-cuda-glib13_0.13.0-1_amd64.deb
+    - libarrow-cuda13_0.13.0-1_amd64.deb
+    - libarrow-python-dev_0.13.0-1_amd64.deb
+    - libarrow-python13_0.13.0-1_amd64.deb
+    - libarrow13_0.13.0-1_amd64.deb
+    - libgandiva-dev_0.13.0-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0-1_all.deb
+    - libgandiva-glib13_0.13.0-1_amd64.deb
+    - libgandiva13_0.13.0-1_amd64.deb
+    - libparquet-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-doc_0.13.0-1_all.deb
+    - libparquet-glib13_0.13.0-1_amd64.deb
+    - libparquet13_0.13.0-1_amd64.deb
+    - libplasma-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-doc_0.13.0-1_all.deb
+    - libplasma-glib13_0.13.0-1_amd64.deb
+    - libplasma13_0.13.0-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-72-ubuntu-xenial
+    commit: 2d254bfc710effe116d7d742346816a88ef5ae6c
+  conda-osx-clang-py37: !Task
+    platform: osx
+    template: conda-recipes/travis.osx.yml
+    artifacts:
+    - arrow-cpp-0.13.0-py37(h[a-z0-9]+)_0.tar.bz2
+    - pyarrow-0.13.0-py37(h[a-z0-9]+)_0.tar.bz2
+    params:
+      config: osx_python3.7
+    branch: build-72-conda-osx-clang-py37
+    commit: f368c662f5a3d2a0f3a56119a7ab7df17058245a
+  conda-linux-gcc-py27: !Task
+    platform: linux
+    template: conda-recipes/travis.linux.yml
+    artifacts:
+    - arrow-cpp-0.13.0-py27(h[a-z0-9]+)_0.tar.bz2
+    - pyarrow-0.13.0-py27(h[a-z0-9]+)_0.tar.bz2
+    params:
+      config: linux_python2.7
+    branch: build-72-conda-linux-gcc-py27
+    commit: b668b78be1be67e290c25ee37c4079f67a164b3e
+  wheel-osx-cp35m: !Task
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.13.0-cp35-cp35m-macosx_10_6_intel.whl
+    params:
+      python_version: 3.5
+    branch: build-72-wheel-osx-cp35m
+    commit: b9feb915470f731dbea944fe369f9af8fa25dc00
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0-1.debian.tar.xz
+    - apache-arrow_0.13.0-1.dsc
+    - apache-arrow_0.13.0.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0-1_amd64.deb
+    - libarrow-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-dev_0.13.0-1_amd64.deb
+    - libarrow-glib-doc_0.13.0-1_all.deb
+    - libarrow-glib13-dbgsym_0.13.0-1_amd64.deb
+    - libarrow-glib13_0.13.0-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0-1_amd64.deb
+    - libarrow-cuda-glib13-dbgsym_0.13.0-1_amd64.deb
+    - libarrow-cuda-glib13_0.13.0-1_amd64.deb
+    - libarrow-cuda13-dbgsym_0.13.0-1_amd64.deb
+    - libarrow-cuda13_0.13.0-1_amd64.deb
+    - libarrow-python-dev_0.13.0-1_amd64.deb
+    - libarrow-python13-dbgsym_0.13.0-1_amd64.deb
+    - libarrow-python13_0.13.0-1_amd64.deb
+    - libarrow13-dbgsym_0.13.0-1_amd64.deb
+    - libarrow13_0.13.0-1_amd64.deb
+    - libgandiva-dev_0.13.0-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0-1_all.deb
+    - libgandiva-glib13-dbgsym_0.13.0-1_amd64.deb
+    - libgandiva-glib13_0.13.0-1_amd64.deb
+    - libgandiva13-dbgsym_0.13.0-1_amd64.deb
+    - libgandiva13_0.13.0-1_amd64.deb
+    - libparquet-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-dev_0.13.0-1_amd64.deb
+    - libparquet-glib-doc_0.13.0-1_all.deb
+    - libparquet-glib13-dbgsym_0.13.0-1_amd64.deb
+    - libparquet-glib13_0.13.0-1_amd64.deb
+    - libparquet13-dbgsym_0.13.0-1_amd64.deb
+    - libparquet13_0.13.0-1_amd64.deb
+    - libplasma-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-dev_0.13.0-1_amd64.deb
+    - libplasma-glib-doc_0.13.0-1_all.deb
+    - libplasma-glib13-dbgsym_0.13.0-1_amd64.deb
+    - libplasma-glib13_0.13.0-1_amd64.deb
+    - libplasma13-dbgsym_0.13.0-1_amd64.deb
+    - libplasma13_0.13.0-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-72-debian-stretch
+    commit: ec382ccda9038b854170e209a8136136a81ba02f
+  wheel-linux-cp35m: !Task
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.13.0-cp35-cp35m-manylinux1_x86_64.whl
+    params:
+      python_version: 3.5
+      unicode_width: 16
+      test_docker_images:
+      - python:3.5-slim
+    branch: build-72-wheel-linux-cp35m
+    commit: 3f17aba1adb73dfcb59f3aa0adb6fc46dc413d37
+branch: build-72
