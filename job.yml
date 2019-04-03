@@ -1,0 +1,300 @@
+!Job
+target: !Target
+  head: f3031026d9ecfcdb05a47b7ecc019d70c3c242b3
+  email: kou@clear-code.com
+  branch: packaging-deb-missing-plasma-store-server
+  remote: https://github.com/kou/arrow.git
+  version: 0.13.0.dev24
+  no_rc_version: 0.13.0.dev24
+tasks:
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev24-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev24-1.dsc
+    - apache-arrow_0.13.0.dev24.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev24-1_amd64.deb
+    - libarrow-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev24-1_all.deb
+    - libarrow-glib14_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev24-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-python14_0.13.0.dev24-1_amd64.deb
+    - libarrow14_0.13.0.dev24-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev24-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev24-1_all.deb
+    - libgandiva-glib14_0.13.0.dev24-1_amd64.deb
+    - libgandiva14_0.13.0.dev24-1_amd64.deb
+    - libparquet-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev24-1_all.deb
+    - libparquet-glib14_0.13.0.dev24-1_amd64.deb
+    - libparquet14_0.13.0.dev24-1_amd64.deb
+    - libplasma-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev24-1_all.deb
+    - libplasma-glib14_0.13.0.dev24-1_amd64.deb
+    - libplasma14_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server_0.13.0.dev24-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-73-ubuntu-bionic
+    commit: db97a769ae04e551d8c5e11b52e39a7060ae78d4
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev24-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev24-1.dsc
+    - apache-arrow_0.13.0.dev24.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev24-1_amd64.deb
+    - libarrow-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev24-1_all.deb
+    - libarrow-glib14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib14_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-glib14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev24-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-python14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libarrow-python14_0.13.0.dev24-1_amd64.deb
+    - libarrow14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libarrow14_0.13.0.dev24-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev24-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev24-1_all.deb
+    - libgandiva-glib14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libgandiva-glib14_0.13.0.dev24-1_amd64.deb
+    - libgandiva14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libgandiva14_0.13.0.dev24-1_amd64.deb
+    - libparquet-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev24-1_all.deb
+    - libparquet-glib14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib14_0.13.0.dev24-1_amd64.deb
+    - libparquet14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libparquet14_0.13.0.dev24-1_amd64.deb
+    - libplasma-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev24-1_all.deb
+    - libplasma-glib14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib14_0.13.0.dev24-1_amd64.deb
+    - libplasma14-dbgsym_0.13.0.dev24-1_amd64.deb
+    - libplasma14_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server_0.13.0.dev24-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-73-debian-stretch
+    commit: 8e3ba8c4790b4ed13eb11d85e1fdb4daa7b9cde5
+  ubuntu-trusty: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev24-1.debian.tar.gz
+    - apache-arrow_0.13.0.dev24-1.dsc
+    - apache-arrow_0.13.0.dev24.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev24-1_amd64.deb
+    - libarrow-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev24-1_all.deb
+    - libarrow-glib14_0.13.0.dev24-1_amd64.deb
+    - libarrow14_0.13.0.dev24-1_amd64.deb
+    - libparquet-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev24-1_all.deb
+    - libparquet-glib14_0.13.0.dev24-1_amd64.deb
+    - libparquet14_0.13.0.dev24-1_amd64.deb
+    - libplasma-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev24-1_all.deb
+    - libplasma-glib14_0.13.0.dev24-1_amd64.deb
+    - libplasma14_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server_0.13.0.dev24-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-trusty
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.gz
+      - .orig.tar.gz
+    branch: build-73-ubuntu-trusty
+    commit: a5e94d04bdbd9bc5709d61809652232650a53722
+  centos-7: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.13.0.dev24-1.el7.src.rpm
+    - arrow-debuginfo-0.13.0.dev24-1.el7.x86_64.rpm
+    - arrow-devel-0.13.0.dev24-1.el7.x86_64.rpm
+    - arrow-glib-devel-0.13.0.dev24-1.el7.x86_64.rpm
+    - arrow-glib-doc-0.13.0.dev24-1.el7.x86_64.rpm
+    - arrow-glib-libs-0.13.0.dev24-1.el7.x86_64.rpm
+    - arrow-libs-0.13.0.dev24-1.el7.x86_64.rpm
+    - arrow-python-devel-0.13.0.dev24-1.el7.x86_64.rpm
+    - arrow-python-libs-0.13.0.dev24-1.el7.x86_64.rpm
+    - parquet-devel-0.13.0.dev24-1.el7.x86_64.rpm
+    - parquet-glib-devel-0.13.0.dev24-1.el7.x86_64.rpm
+    - parquet-glib-doc-0.13.0.dev24-1.el7.x86_64.rpm
+    - parquet-glib-libs-0.13.0.dev24-1.el7.x86_64.rpm
+    - parquet-libs-0.13.0.dev24-1.el7.x86_64.rpm
+    - plasma-devel-0.13.0.dev24-1.el7.x86_64.rpm
+    - plasma-glib-devel-0.13.0.dev24-1.el7.x86_64.rpm
+    - plasma-glib-doc-0.13.0.dev24-1.el7.x86_64.rpm
+    - plasma-glib-libs-0.13.0.dev24-1.el7.x86_64.rpm
+    - plasma-libs-0.13.0.dev24-1.el7.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=7
+      upload_extensions:
+      - .rpm
+    branch: build-73-centos-7
+    commit: b69b68c3402f03eb1bc0ffe46582880475e4921b
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev24-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev24-1.dsc
+    - apache-arrow_0.13.0.dev24.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev24-1_amd64.deb
+    - libarrow-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev24-1_all.deb
+    - libarrow-glib14_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev24-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-python14_0.13.0.dev24-1_amd64.deb
+    - libarrow14_0.13.0.dev24-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev24-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev24-1_all.deb
+    - libgandiva-glib14_0.13.0.dev24-1_amd64.deb
+    - libgandiva14_0.13.0.dev24-1_amd64.deb
+    - libparquet-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev24-1_all.deb
+    - libparquet-glib14_0.13.0.dev24-1_amd64.deb
+    - libparquet14_0.13.0.dev24-1_amd64.deb
+    - libplasma-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev24-1_all.deb
+    - libplasma-glib14_0.13.0.dev24-1_amd64.deb
+    - libplasma14_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server_0.13.0.dev24-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-73-ubuntu-cosmic
+    commit: 7957249053229cd1c7723d378e4299bf818f5a4d
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev24-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev24-1.dsc
+    - apache-arrow_0.13.0.dev24.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev24-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev24-1_amd64.deb
+    - libarrow-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev24-1_all.deb
+    - libarrow-glib14_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev24-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev24-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev24-1_amd64.deb
+    - libarrow-python14_0.13.0.dev24-1_amd64.deb
+    - libarrow14_0.13.0.dev24-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev24-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev24-1_all.deb
+    - libgandiva-glib14_0.13.0.dev24-1_amd64.deb
+    - libgandiva14_0.13.0.dev24-1_amd64.deb
+    - libparquet-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev24-1_all.deb
+    - libparquet-glib14_0.13.0.dev24-1_amd64.deb
+    - libparquet14_0.13.0.dev24-1_amd64.deb
+    - libplasma-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev24-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev24-1_all.deb
+    - libplasma-glib14_0.13.0.dev24-1_amd64.deb
+    - libplasma14_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev24-1_amd64.deb
+    - plasma-store-server_0.13.0.dev24-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-73-ubuntu-xenial
+    commit: 29f114b0eb8c5329e629b77fc7eaf2518f42e11b
+  centos-6: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - arrow-0.13.0.dev24-1.el6.src.rpm
+    - arrow-debuginfo-0.13.0.dev24-1.el6.x86_64.rpm
+    - arrow-devel-0.13.0.dev24-1.el6.x86_64.rpm
+    - arrow-libs-0.13.0.dev24-1.el6.x86_64.rpm
+    - arrow-python-devel-0.13.0.dev24-1.el6.x86_64.rpm
+    - arrow-python-libs-0.13.0.dev24-1.el6.x86_64.rpm
+    - plasma-devel-0.13.0.dev24-1.el6.x86_64.rpm
+    - plasma-libs-0.13.0.dev24-1.el6.x86_64.rpm
+    params:
+      build_command: rake yum:build CENTOS_VERSIONS=6
+      upload_extensions:
+      - .rpm
+    branch: build-73-centos-6
+    commit: 3e63a5b284c4b68d34c41afa921237029ca00004
+branch: build-73
