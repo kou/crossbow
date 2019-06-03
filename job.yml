@@ -1,0 +1,217 @@
+!Job
+target: !Target
+  head: 4b236f9ee503a05fc43a99e8e455ef21aaf80d7a
+  email: kou@clear-code.com
+  branch: cpp-llvm-7.1
+  remote: https://github.com/kou/arrow.git
+  version: 0.13.0.dev275
+  no_rc_version: 0.13.0.dev275
+tasks:
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev275-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev275-1.dsc
+    - apache-arrow_0.13.0.dev275.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev275-1_amd64.deb
+    - libarrow-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev275-1_all.deb
+    - libarrow-glib14_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev275-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-python14_0.13.0.dev275-1_amd64.deb
+    - libarrow14_0.13.0.dev275-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev275-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev275-1_all.deb
+    - libgandiva-glib14_0.13.0.dev275-1_amd64.deb
+    - libgandiva14_0.13.0.dev275-1_amd64.deb
+    - libparquet-dev_0.13.0.dev275-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev275-1_all.deb
+    - libparquet-glib14_0.13.0.dev275-1_amd64.deb
+    - libparquet14_0.13.0.dev275-1_amd64.deb
+    - libplasma-dev_0.13.0.dev275-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev275-1_all.deb
+    - libplasma-glib14_0.13.0.dev275-1_amd64.deb
+    - libplasma14_0.13.0.dev275-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev275-1_amd64.deb
+    - plasma-store-server_0.13.0.dev275-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-84-ubuntu-bionic
+    commit: d677fe42aed9898a2dfab99bd0bf5969b48f8693
+  ubuntu-xenial: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev275-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev275-1.dsc
+    - apache-arrow_0.13.0.dev275.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev275-1_amd64.deb
+    - libarrow-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev275-1_all.deb
+    - libarrow-glib14_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev275-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-python14_0.13.0.dev275-1_amd64.deb
+    - libarrow14_0.13.0.dev275-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev275-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev275-1_all.deb
+    - libgandiva-glib14_0.13.0.dev275-1_amd64.deb
+    - libgandiva14_0.13.0.dev275-1_amd64.deb
+    - libparquet-dev_0.13.0.dev275-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev275-1_all.deb
+    - libparquet-glib14_0.13.0.dev275-1_amd64.deb
+    - libparquet14_0.13.0.dev275-1_amd64.deb
+    - libplasma-dev_0.13.0.dev275-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev275-1_all.deb
+    - libplasma-glib14_0.13.0.dev275-1_amd64.deb
+    - libplasma14_0.13.0.dev275-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev275-1_amd64.deb
+    - plasma-store-server_0.13.0.dev275-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-84-ubuntu-xenial
+    commit: 96b281ee8e325ba62d901ae60caff8adc2b8643f
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev275-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev275-1.dsc
+    - apache-arrow_0.13.0.dev275.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev275-1_amd64.deb
+    - libarrow-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev275-1_all.deb
+    - libarrow-glib14_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev275-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-python14_0.13.0.dev275-1_amd64.deb
+    - libarrow14_0.13.0.dev275-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev275-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev275-1_all.deb
+    - libgandiva-glib14_0.13.0.dev275-1_amd64.deb
+    - libgandiva14_0.13.0.dev275-1_amd64.deb
+    - libparquet-dev_0.13.0.dev275-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev275-1_all.deb
+    - libparquet-glib14_0.13.0.dev275-1_amd64.deb
+    - libparquet14_0.13.0.dev275-1_amd64.deb
+    - libplasma-dev_0.13.0.dev275-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev275-1_all.deb
+    - libplasma-glib14_0.13.0.dev275-1_amd64.deb
+    - libplasma14_0.13.0.dev275-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev275-1_amd64.deb
+    - plasma-store-server_0.13.0.dev275-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-cosmic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-84-ubuntu-cosmic
+    commit: 37f044a97862867f7a923c8c364025a74e88124f
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev275-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev275-1.dsc
+    - apache-arrow_0.13.0.dev275.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev275-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev275-1_amd64.deb
+    - libarrow-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev275-1_all.deb
+    - libarrow-glib14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libarrow-glib14_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-glib14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev275-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev275-1_amd64.deb
+    - libarrow-python14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libarrow-python14_0.13.0.dev275-1_amd64.deb
+    - libarrow14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libarrow14_0.13.0.dev275-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev275-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev275-1_all.deb
+    - libgandiva-glib14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libgandiva-glib14_0.13.0.dev275-1_amd64.deb
+    - libgandiva14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libgandiva14_0.13.0.dev275-1_amd64.deb
+    - libparquet-dev_0.13.0.dev275-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev275-1_all.deb
+    - libparquet-glib14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libparquet-glib14_0.13.0.dev275-1_amd64.deb
+    - libparquet14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libparquet14_0.13.0.dev275-1_amd64.deb
+    - libplasma-dev_0.13.0.dev275-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev275-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev275-1_all.deb
+    - libplasma-glib14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libplasma-glib14_0.13.0.dev275-1_amd64.deb
+    - libplasma14-dbgsym_0.13.0.dev275-1_amd64.deb
+    - libplasma14_0.13.0.dev275-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev275-1_amd64.deb
+    - plasma-store-server_0.13.0.dev275-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-84-debian-stretch
+    commit: b11e1edf151eacef2775ae7d68b1bd0c87cc9078
+branch: build-84
