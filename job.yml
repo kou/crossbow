@@ -1,0 +1,177 @@
+!Job
+target: !Target
+  head: b66a7d4687eb69e031c95254a739372958f526c9
+  email: kou@clear-code.com
+  branch: packaging-deb-flight
+  remote: https://github.com/kou/arrow.git
+  version: 0.13.0.dev353
+  no_rc_version: 0.13.0.dev353
+tasks:
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev353-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev353-1.dsc
+    - apache-arrow_0.13.0.dev353.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev353-1_amd64.deb
+    - libarrow-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev353-1_all.deb
+    - libarrow-glib14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libarrow-glib14_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-glib14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev353-1_amd64.deb
+    - libarrow-flight-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-flight14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libarrow-flight14_0.13.0.dev353-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-python14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libarrow-python14_0.13.0.dev353-1_amd64.deb
+    - libarrow14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libarrow14_0.13.0.dev353-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev353-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev353-1_all.deb
+    - libgandiva-glib14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libgandiva-glib14_0.13.0.dev353-1_amd64.deb
+    - libgandiva14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libgandiva14_0.13.0.dev353-1_amd64.deb
+    - libparquet-dev_0.13.0.dev353-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev353-1_all.deb
+    - libparquet-glib14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libparquet-glib14_0.13.0.dev353-1_amd64.deb
+    - libparquet14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libparquet14_0.13.0.dev353-1_amd64.deb
+    - libplasma-dev_0.13.0.dev353-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev353-1_all.deb
+    - libplasma-glib14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libplasma-glib14_0.13.0.dev353-1_amd64.deb
+    - libplasma14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libplasma14_0.13.0.dev353-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev353-1_amd64.deb
+    - plasma-store-server_0.13.0.dev353-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-91-debian-stretch
+    commit: 0266e735e37a57f2e13a41c89ba8229c87552a39
+  ubuntu-bionic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev353-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev353-1.dsc
+    - apache-arrow_0.13.0.dev353.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev353-1_amd64.deb
+    - libarrow-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev353-1_all.deb
+    - libarrow-glib14_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev353-1_amd64.deb
+    - libarrow-flight-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-flight14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libarrow-flight14_0.13.0.dev353-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-python14_0.13.0.dev353-1_amd64.deb
+    - libarrow14_0.13.0.dev353-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev353-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev353-1_all.deb
+    - libgandiva-glib14_0.13.0.dev353-1_amd64.deb
+    - libgandiva14_0.13.0.dev353-1_amd64.deb
+    - libparquet-dev_0.13.0.dev353-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev353-1_all.deb
+    - libparquet-glib14_0.13.0.dev353-1_amd64.deb
+    - libparquet14_0.13.0.dev353-1_amd64.deb
+    - libplasma-dev_0.13.0.dev353-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev353-1_all.deb
+    - libplasma-glib14_0.13.0.dev353-1_amd64.deb
+    - libplasma14_0.13.0.dev353-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev353-1_amd64.deb
+    - plasma-store-server_0.13.0.dev353-1_amd64.deb
+    params:
+      build_command: travis_wait 40 rake apt:build APT_TARGETS=ubuntu-bionic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-91-ubuntu-bionic
+    commit: 18b07d66434245f71f428a7522a4d2649289a07c
+  ubuntu-cosmic: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev353-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev353-1.dsc
+    - apache-arrow_0.13.0.dev353.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev353-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev353-1_amd64.deb
+    - libarrow-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev353-1_all.deb
+    - libarrow-glib14_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev353-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev353-1_amd64.deb
+    - libarrow-flight-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-flight14-dbgsym_0.13.0.dev353-1_amd64.deb
+    - libarrow-flight14_0.13.0.dev353-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev353-1_amd64.deb
+    - libarrow-python14_0.13.0.dev353-1_amd64.deb
+    - libarrow14_0.13.0.dev353-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev353-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev353-1_all.deb
+    - libgandiva-glib14_0.13.0.dev353-1_amd64.deb
+    - libgandiva14_0.13.0.dev353-1_amd64.deb
+    - libparquet-dev_0.13.0.dev353-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev353-1_all.deb
+    - libparquet-glib14_0.13.0.dev353-1_amd64.deb
+    - libparquet14_0.13.0.dev353-1_amd64.deb
+    - libplasma-dev_0.13.0.dev353-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev353-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev353-1_all.deb
+    - libplasma-glib14_0.13.0.dev353-1_amd64.deb
+    - libplasma14_0.13.0.dev353-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev353-1_amd64.deb
+    - plasma-store-server_0.13.0.dev353-1_amd64.deb
+    params:
+      build_command: travis_wait 40 rake apt:build APT_TARGETS=ubuntu-cosmic
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-91-ubuntu-cosmic
+    commit: 2f624c85a630a3b8c4d0dacbdf2efc0ec4140a05
+branch: build-91
