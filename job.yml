@@ -1,0 +1,111 @@
+!Job
+target: !Target
+  head: 27d7e903a8030bf59c87edb1c1623321a3200428
+  email: kou@clear-code.com
+  branch: packaging-deb-arm64
+  remote: https://github.com/kou/arrow.git
+  version: 0.13.0.dev393
+  no_rc_version: 0.13.0.dev393
+tasks:
+  debian-stretch-arm64: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev393-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev393-1.dsc
+    - apache-arrow_0.13.0.dev393.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev393-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev393-1_amd64.deb
+    - libarrow-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev393-1_all.deb
+    - libarrow-glib14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-glib14_0.13.0.dev393-1_amd64.deb
+    - libarrow-flight-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-flight14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-flight14_0.13.0.dev393-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-python14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-python14_0.13.0.dev393-1_amd64.deb
+    - libarrow14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow14_0.13.0.dev393-1_amd64.deb
+    - libparquet-dev_0.13.0.dev393-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev393-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev393-1_all.deb
+    - libparquet-glib14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libparquet-glib14_0.13.0.dev393-1_amd64.deb
+    - libparquet14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libparquet14_0.13.0.dev393-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch-arm64
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-93-debian-stretch-arm64
+    commit: afc98780bc79e5e3f2c699113964d8bf20d04df9
+  debian-stretch: !Task
+    platform: linux
+    template: linux-packages/travis.linux.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev393-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev393-1.dsc
+    - apache-arrow_0.13.0.dev393.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev393-1_amd64.deb
+    - gir1.2-arrow-cuda-1.0_0.13.0.dev393-1_amd64.deb
+    - gir1.2-gandiva-1.0_0.13.0.dev393-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev393-1_amd64.deb
+    - gir1.2-plasma-1.0_0.13.0.dev393-1_amd64.deb
+    - libarrow-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev393-1_all.deb
+    - libarrow-glib14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-glib14_0.13.0.dev393-1_amd64.deb
+    - libarrow-cuda-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-cuda-glib-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-cuda-glib14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-cuda-glib14_0.13.0.dev393-1_amd64.deb
+    - libarrow-cuda14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-cuda14_0.13.0.dev393-1_amd64.deb
+    - libarrow-flight-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-flight14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-flight14_0.13.0.dev393-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-python14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-python14_0.13.0.dev393-1_amd64.deb
+    - libarrow14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow14_0.13.0.dev393-1_amd64.deb
+    - libgandiva-dev_0.13.0.dev393-1_amd64.deb
+    - libgandiva-glib-dev_0.13.0.dev393-1_amd64.deb
+    - libgandiva-glib-doc_0.13.0.dev393-1_all.deb
+    - libgandiva-glib14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libgandiva-glib14_0.13.0.dev393-1_amd64.deb
+    - libgandiva14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libgandiva14_0.13.0.dev393-1_amd64.deb
+    - libparquet-dev_0.13.0.dev393-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev393-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev393-1_all.deb
+    - libparquet-glib14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libparquet-glib14_0.13.0.dev393-1_amd64.deb
+    - libparquet14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libparquet14_0.13.0.dev393-1_amd64.deb
+    - libplasma-dev_0.13.0.dev393-1_amd64.deb
+    - libplasma-glib-dev_0.13.0.dev393-1_amd64.deb
+    - libplasma-glib-doc_0.13.0.dev393-1_all.deb
+    - libplasma-glib14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libplasma-glib14_0.13.0.dev393-1_amd64.deb
+    - libplasma14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libplasma14_0.13.0.dev393-1_amd64.deb
+    - plasma-store-server-dbgsym_0.13.0.dev393-1_amd64.deb
+    - plasma-store-server_0.13.0.dev393-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-93-debian-stretch
+    commit: fe5f9577467f889885f467df94f8e954ac92d766
+branch: build-93
