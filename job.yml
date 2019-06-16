@@ -1,0 +1,45 @@
+!Job
+target: !Target
+  head: 172725c26926eb132cfa38d9a27b753012f1d029
+  email: kou@clear-code.com
+  branch: packaging-deb-arm64
+  remote: https://github.com/kou/arrow.git
+  version: 0.13.0.dev393
+  no_rc_version: 0.13.0.dev393
+tasks:
+  debian-stretch-arm64: !Task
+    platform: linux
+    template: linux-packages/travis.linux.arm64.yml
+    artifacts:
+    - apache-arrow_0.13.0.dev393-1.debian.tar.xz
+    - apache-arrow_0.13.0.dev393-1.dsc
+    - apache-arrow_0.13.0.dev393.orig.tar.gz
+    - gir1.2-arrow-1.0_0.13.0.dev393-1_amd64.deb
+    - gir1.2-parquet-1.0_0.13.0.dev393-1_amd64.deb
+    - libarrow-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-glib-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-glib-doc_0.13.0.dev393-1_all.deb
+    - libarrow-glib14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-glib14_0.13.0.dev393-1_amd64.deb
+    - libarrow-python-dev_0.13.0.dev393-1_amd64.deb
+    - libarrow-python14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow-python14_0.13.0.dev393-1_amd64.deb
+    - libarrow14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libarrow14_0.13.0.dev393-1_amd64.deb
+    - libparquet-dev_0.13.0.dev393-1_amd64.deb
+    - libparquet-glib-dev_0.13.0.dev393-1_amd64.deb
+    - libparquet-glib-doc_0.13.0.dev393-1_all.deb
+    - libparquet-glib14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libparquet-glib14_0.13.0.dev393-1_amd64.deb
+    - libparquet14-dbgsym_0.13.0.dev393-1_amd64.deb
+    - libparquet14_0.13.0.dev393-1_amd64.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-stretch-arm64
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-99-debian-stretch-arm64
+    commit: 50f4e4d64c8c9544c831f906f0bb2303d18cc74c
+branch: build-99
