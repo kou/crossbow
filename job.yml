@@ -1,0 +1,20 @@
+!Job
+target: !Target
+  head: 09f8fd9d95892bf827d11cfb68c6c507e3f7968d
+  email: kou@clear-code.com
+  branch: ci-python-wheel-macos
+  remote: https://github.com/kou/arrow.git
+  version: 0.15.0.dev325
+  no_rc_version: 0.15.0.dev325
+tasks:
+  wheel-osx-cp36m: !Task
+    ci: travis
+    platform: osx
+    template: python-wheels/travis.osx.yml
+    artifacts:
+    - pyarrow-0.15.0.dev325-cp36-cp36m-macosx_10_6_intel.whl
+    params:
+      python_version: 3.6
+    branch: build-114-travis-wheel-osx-cp36m
+    commit: 0396337dfbfa6614171c0b6727b029332f02f81b
+branch: build-114
