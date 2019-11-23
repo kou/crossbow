@@ -1,0 +1,25 @@
+!Job
+target: !Target
+  head: fb58286b3a22ae48bce961ad9fccf59e786424d3
+  email: kou@clear-code.com
+  branch: python-wheel-use-python-3
+  remote: https://github.com/kou/arrow.git
+  version: 0.15.0.dev324
+  no_rc_version: 0.15.0.dev324
+tasks:
+  wheel-manylinux1-cp36m: !Task
+    ci: travis
+    platform: linux
+    template: python-wheels/travis.linux.yml
+    artifacts:
+    - pyarrow-0.15.0.dev324-cp36-cp36m-manylinux1_x86_64.whl
+    params:
+      python_version: 3.6
+      unicode_width: 16
+      wheel_tag: manylinux1
+      test_docker_images:
+      - python:3.6
+      test_remove_system_libs: true
+    branch: build-116-travis-wheel-manylinux1-cp36m
+    commit: 80ab7401eb26cfcf6cbb03a70c0ca1b6dffb82c1
+branch: build-116
