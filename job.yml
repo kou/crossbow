@@ -1,0 +1,56 @@
+!Job
+target: !Target
+  head: 3b7f5a28c3170514112d88f36168058b0446e7c3
+  email: kou@clear-code.com
+  branch: crossbow-github-actions
+  remote: https://github.com/kou/arrow.git
+  version: 0.15.0.dev673
+  no_rc_version: 0.15.0.dev673
+tasks:
+  debian-buster-arm64: !Task
+    ci: github
+    platform: linux
+    template: linux-packages/github.linux.arm64.yml
+    artifacts:
+    - apache-arrow-archive-keyring_0.15.0.dev673-1.debian.tar.xz
+    - apache-arrow-archive-keyring_0.15.0.dev673-1.dsc
+    - apache-arrow-archive-keyring_0.15.0.dev673-1_all.deb
+    - apache-arrow-archive-keyring_0.15.0.dev673.orig.tar.gz
+    - apache-arrow_0.15.0.dev673-1.debian.tar.xz
+    - apache-arrow_0.15.0.dev673-1.dsc
+    - apache-arrow_0.15.0.dev673.orig.tar.gz
+    - gir1.2-arrow-1.0_0.15.0.dev673-1_[a-z0-9]+.deb
+    - gir1.2-parquet-1.0_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-dev_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-dataset-dev_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-dataset100-dbgsym_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-dataset100_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-flight-dev_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-flight100-dbgsym_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-flight100_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-glib-dev_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-glib-doc_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-glib100-dbgsym_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-glib100_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-python-dev_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-python100-dbgsym_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow-python100_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow100-dbgsym_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libarrow100_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libparquet-dev_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libparquet-glib-dev_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libparquet-glib-doc_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libparquet-glib100-dbgsym_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libparquet-glib100_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libparquet100-dbgsym_0.15.0.dev673-1_[a-z0-9]+.deb
+    - libparquet100_0.15.0.dev673-1_[a-z0-9]+.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-buster-arm64
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-134-github-debian-buster-arm64
+    commit: 6698375968db4d19a6f3c61df714572d18c68a19
+branch: build-134
