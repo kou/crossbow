@@ -1,0 +1,81 @@
+!Job
+target: !Target
+  head: 5a6053f9467a8f99a7e1febc1c0863e6fe1281ac
+  email: kou@clear-code.com
+  branch: crossbow-github-actions
+  remote: https://github.com/kou/arrow.git
+  version: 0.15.0.dev678
+  no_rc_version: 0.15.0.dev678
+tasks:
+  debian-buster: !Task
+    ci: github
+    platform: linux
+    template: linux-packages/github.linux.yml
+    artifacts:
+    - apache-arrow-archive-keyring_0.15.0.dev678-1.debian.tar.xz
+    - apache-arrow-archive-keyring_0.15.0.dev678-1.dsc
+    - apache-arrow-archive-keyring_0.15.0.dev678-1_all.deb
+    - apache-arrow-archive-keyring_0.15.0.dev678.orig.tar.gz
+    - apache-arrow_0.15.0.dev678-1.debian.tar.xz
+    - apache-arrow_0.15.0.dev678-1.dsc
+    - apache-arrow_0.15.0.dev678.orig.tar.gz
+    - gir1.2-arrow-1.0_0.15.0.dev678-1_[a-z0-9]+.deb
+    - gir1.2-arrow-cuda-1.0_0.15.0.dev678-1_[a-z0-9]+.deb
+    - gir1.2-gandiva-1.0_0.15.0.dev678-1_[a-z0-9]+.deb
+    - gir1.2-parquet-1.0_0.15.0.dev678-1_[a-z0-9]+.deb
+    - gir1.2-plasma-1.0_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-glib-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-glib-doc_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-glib16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-glib16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-cuda-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-cuda16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-cuda16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-dataset-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-dataset16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-dataset16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-flight-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-flight16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-flight16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-python-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-python16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow-python16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libarrow16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libgandiva-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libgandiva-glib-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libgandiva-glib-doc_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libgandiva-glib16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libgandiva-glib16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libgandiva16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libgandiva16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libparquet-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libparquet-glib-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libparquet-glib-doc_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libparquet-glib16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libparquet-glib16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libparquet16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libparquet16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libplasma-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libplasma-glib-dev_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libplasma-glib-doc_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libplasma-glib16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libplasma-glib16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libplasma16-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - libplasma16_0.15.0.dev678-1_[a-z0-9]+.deb
+    - plasma-store-server-dbgsym_0.15.0.dev678-1_[a-z0-9]+.deb
+    - plasma-store-server_0.15.0.dev678-1_[a-z0-9]+.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-buster
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-138-github-debian-buster
+    commit: 0477a5a409b17b0bd0c72d742c4be261b08c031f
+branch: build-138
