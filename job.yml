@@ -1,0 +1,24 @@
+!Job
+target: !Target
+  head: 4f5036293b68857f95974a8901b6a7425dc86573
+  email: kou@clear-code.com
+  branch: packaging-nuget-crossbow
+  remote: https://github.com/kou/arrow.git
+  version: 0.16.1.dev511
+  no_rc_version: 0.16.1.dev511
+tasks:
+  nuget-ubuntu: !Task
+    ci: github
+    platform: linux
+    template: nuget-packages/github.linux.yml
+    artifacts:
+    - Apache.Arrow.0.16.1.dev511.nupkg
+    - Apache.Arrow.0.16.1.dev511.snupkg
+    params:
+      commands:
+      - docker-compose pull --ignore-pull-failures ubuntu-csharp-nuget
+      - docker-compose build ubuntu-csharp-nuget
+      - docker-compose run ubuntu-csharp-nuget
+    branch: build-141-github-nuget-ubuntu
+    commit: d57a94f736e3e631dfb51032bfce51aacf3c77e9
+branch: build-141
