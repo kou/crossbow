@@ -1,0 +1,81 @@
+!Job
+target: !Target
+  head: 99ff8f3f6785e2562a0c855a05ac82bd99918200
+  email: kou@clear-code.com
+  branch: cpp-reduce-disk-usage-for-external-projects
+  remote: https://github.com/kou/arrow.git
+  version: 0.16.1.dev586
+  no_rc_version: 0.16.1.dev586
+tasks:
+  debian-buster-amd64: !Task
+    ci: travis
+    platform: linux
+    template: linux-packages/travis.linux.amd64.yml
+    artifacts:
+    - apache-arrow-archive-keyring_0.16.1.dev586-1.debian.tar.xz
+    - apache-arrow-archive-keyring_0.16.1.dev586-1.dsc
+    - apache-arrow-archive-keyring_0.16.1.dev586-1_all.deb
+    - apache-arrow-archive-keyring_0.16.1.dev586.orig.tar.gz
+    - apache-arrow_0.16.1.dev586-1.debian.tar.xz
+    - apache-arrow_0.16.1.dev586-1.dsc
+    - apache-arrow_0.16.1.dev586.orig.tar.gz
+    - gir1.2-arrow-1.0_0.16.1.dev586-1_[a-z0-9]+.deb
+    - gir1.2-arrow-cuda-1.0_0.16.1.dev586-1_[a-z0-9]+.deb
+    - gir1.2-gandiva-1.0_0.16.1.dev586-1_[a-z0-9]+.deb
+    - gir1.2-parquet-1.0_0.16.1.dev586-1_[a-z0-9]+.deb
+    - gir1.2-plasma-1.0_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-glib-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-glib-doc_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-glib100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-glib100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-cuda-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-cuda100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-cuda100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-dataset-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-dataset100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-dataset100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-flight-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-flight100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-flight100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-python-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-python100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow-python100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libarrow100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libgandiva-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libgandiva-glib-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libgandiva-glib-doc_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libgandiva-glib100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libgandiva-glib100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libgandiva100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libgandiva100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libparquet-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libparquet-glib-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libparquet-glib-doc_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libparquet-glib100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libparquet-glib100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libparquet100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libparquet100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libplasma-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libplasma-glib-dev_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libplasma-glib-doc_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libplasma-glib100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libplasma-glib100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libplasma100-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - libplasma100_0.16.1.dev586-1_[a-z0-9]+.deb
+    - plasma-store-server-dbgsym_0.16.1.dev586-1_[a-z0-9]+.deb
+    - plasma-store-server_0.16.1.dev586-1_[a-z0-9]+.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-buster
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-147-travis-debian-buster-amd64
+    commit: beac3d3268c8dd5e521d5c60f13bbddcbb064f19
+branch: build-147
