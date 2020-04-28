@@ -1,0 +1,64 @@
+!Job
+target: !Target
+  head: 058754008d733720f23217f030950127cbc2a24c
+  email: kou@clear-code.com
+  branch: packaging-linux-arm
+  remote: https://github.com/kou/arrow.git
+  version: 0.17.1.dev75
+  no_rc_version: 0.17.1.dev75
+tasks:
+  debian-buster-arm64: !Task
+    ci: travis
+    platform: linux
+    template: linux-packages/travis.linux.arm64.yml
+    artifacts:
+    - apache-arrow-archive-keyring_0.17.1.dev75-1.debian.tar.xz
+    - apache-arrow-archive-keyring_0.17.1.dev75-1.dsc
+    - apache-arrow-archive-keyring_0.17.1.dev75-1_all.deb
+    - apache-arrow-archive-keyring_0.17.1.dev75.orig.tar.gz
+    - apache-arrow_0.17.1.dev75-1.debian.tar.xz
+    - apache-arrow_0.17.1.dev75-1.dsc
+    - apache-arrow_0.17.1.dev75.orig.tar.gz
+    - gir1.2-arrow-1.0_0.17.1.dev75-1_[a-z0-9]+.deb
+    - gir1.2-gandiva-1.0_0.17.1.dev75-1_[a-z0-9]+.deb
+    - gir1.2-parquet-1.0_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-dataset-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-dataset18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-dataset18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-flight-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-flight18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-flight18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-glib-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-glib-doc_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-glib18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-glib18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-python-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-python18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-python18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libgandiva-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libgandiva-glib-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libgandiva-glib-doc_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libgandiva-glib18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libgandiva-glib18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libgandiva18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libgandiva18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet-glib-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet-glib-doc_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet-glib18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet-glib18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet18_0.17.1.dev75-1_[a-z0-9]+.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=debian-buster-arm64
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-156-travis-debian-buster-arm64
+    commit: 308bf03e91d50ef6db92f0a8bd90644f8309ac8f
+branch: build-156
