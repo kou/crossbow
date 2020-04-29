@@ -1,0 +1,99 @@
+!Job
+target: !Target
+  head: c8828b9b4b33b3cefc5551eb59f3cb5d496f84e6
+  email: kou@clear-code.com
+  branch: packaging-linux-arm
+  remote: https://github.com/kou/arrow.git
+  version: 0.17.1.dev75
+  no_rc_version: 0.17.1.dev75
+tasks:
+  centos-7-aarch64: !Task
+    ci: travis
+    platform: linux
+    template: linux-packages/travis.linux.arm64.yml
+    artifacts:
+    - arrow-0.17.1.dev75-1.el7.src.rpm
+    - arrow-debuginfo-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - arrow-devel-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - arrow-glib-devel-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - arrow-glib-doc-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - arrow-glib-libs-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - arrow-libs-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - arrow-dataset-devel-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - arrow-dataset-libs-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - arrow-python-devel-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - arrow-python-libs-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - parquet-devel-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - parquet-glib-devel-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - parquet-glib-doc-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - parquet-glib-libs-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - parquet-libs-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - plasma-devel-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - plasma-glib-devel-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - plasma-glib-doc-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - plasma-glib-libs-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - plasma-libs-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    - plasma-store-server-0.17.1.dev75-1.el7.[a-z0-9_]+.rpm
+    params:
+      build_command: rake yum:build YUM_TARGETS=centos-7-aarch64
+      upload_extensions:
+      - .rpm
+    branch: build-171-travis-centos-7-aarch64
+    commit: 59e636aecbf49d3512fea0c0c3b030961f48fcbf
+  centos-8-aarch64: !Task
+    ci: travis
+    platform: linux
+    template: linux-packages/travis.linux.arm64.yml
+    artifacts:
+    - arrow-0.17.1.dev75-1.el8.src.rpm
+    - arrow-dataset-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-dataset-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-dataset-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-flight-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-flight-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-flight-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-glib-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-glib-doc-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-glib-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-glib-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-python-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-python-flight-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-python-flight-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-python-flight-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-python-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - arrow-python-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - gandiva-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - gandiva-glib-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - gandiva-glib-doc-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - gandiva-glib-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - gandiva-glib-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - gandiva-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - gandiva-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - parquet-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - parquet-glib-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - parquet-glib-doc-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - parquet-glib-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - parquet-glib-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - parquet-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - parquet-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - plasma-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - plasma-glib-devel-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - plasma-glib-doc-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - plasma-glib-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - plasma-glib-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - plasma-libs-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - plasma-libs-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - plasma-store-server-debuginfo-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    - plasma-store-server-0.17.1.dev75-1.el8.[a-z0-9_]+.rpm
+    params:
+      build_command: rake yum:build YUM_TARGETS=centos-8-aarch64
+      upload_extensions:
+      - .rpm
+    branch: build-171-travis-centos-8-aarch64
+    commit: 1578636b2a5f77a96a073281da8165dab5426ba7
+branch: build-171
