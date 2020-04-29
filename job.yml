@@ -1,0 +1,61 @@
+!Job
+target: !Target
+  head: 12e33ed19b9e8e4403e791f860fc2c8d9aa3320e
+  email: kou@clear-code.com
+  branch: packaging-linux-arm
+  remote: https://github.com/kou/arrow.git
+  version: 0.17.1.dev75
+  no_rc_version: 0.17.1.dev75
+tasks:
+  ubuntu-xenial-arm64: !Task
+    ci: travis
+    platform: linux
+    template: linux-packages/travis.linux.arm64.yml
+    artifacts:
+    - apache-arrow-archive-keyring_0.17.1.dev75-1.debian.tar.xz
+    - apache-arrow-archive-keyring_0.17.1.dev75-1.dsc
+    - apache-arrow-archive-keyring_0.17.1.dev75-1_all.deb
+    - apache-arrow-archive-keyring_0.17.1.dev75.orig.tar.gz
+    - apache-arrow_0.17.1.dev75-1.debian.tar.xz
+    - apache-arrow_0.17.1.dev75-1.dsc
+    - apache-arrow_0.17.1.dev75.orig.tar.gz
+    - gir1.2-arrow-1.0_0.17.1.dev75-1_[a-z0-9]+.deb
+    - gir1.2-arrow-cuda-1.0_0.17.1.dev75-1_[a-z0-9]+.deb
+    - gir1.2-parquet-1.0_0.17.1.dev75-1_[a-z0-9]+.deb
+    - gir1.2-plasma-1.0_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-glib-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-glib-doc_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-glib18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-cuda-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-cuda18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-dataset-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-dataset18-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-dataset18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-python-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow-python18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libarrow18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet-glib-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet-glib-doc_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet-glib18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libparquet18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libplasma-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libplasma-glib-dev_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libplasma-glib-doc_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libplasma-glib18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - libplasma18_0.17.1.dev75-1_[a-z0-9]+.deb
+    - plasma-store-server-dbgsym_0.17.1.dev75-1_[a-z0-9]+.deb
+    - plasma-store-server_0.17.1.dev75-1_[a-z0-9]+.deb
+    params:
+      build_command: rake apt:build APT_TARGETS=ubuntu-xenial-arm64
+      upload_extensions:
+      - .deb
+      - .dsc
+      - .debian.tar.xz
+      - .orig.tar.gz
+    branch: build-164-travis-ubuntu-xenial-arm64
+    commit: fbd9b878ecc85676ea4f15bfcbb633db78b46774
+branch: build-164
