@@ -1,0 +1,71 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+os: linux
+arch: arm64
+dist: bionic
+language: minimal
+
+addons:
+  apt:
+    packages:
+      - libgit2-dev
+      - python3-pip
+      - rake
+
+services:
+  - docker
+
+# don't build twice
+if: tag IS blank
+
+env:
+  global:
+    - TRAVIS_TAG=build-172-travis-centos-7-aarch64
+    - BUILD_REF=a649e9aa7be2e4098e6f3916823f7117a03fc983
+    - ARROW_VERSION=0.17.1.dev75
+
+before_script:
+  - git clone --no-checkout https://github.com/kou/arrow.git arrow
+  - git -C arrow fetch -t https://github.com/kou/arrow.git packaging-linux-arm
+  - git -C arrow checkout FETCH_HEAD
+
+script:
+  - pushd arrow/dev/tasks/linux-packages
+  - rake version:update
+  - rake yum:build YUM_TARGETS=centos-7-aarch64
+  - popd
+
+after_script:
+  - |
+    sudo -H pip3 install \
+      click \
+      github3.py \
+      jinja2 \
+      jira \
+      pygit2==0.26.4 \
+      ruamel.yaml \
+      setuptools_scm \
+      toolz
+  - |
+    python3 arrow/dev/tasks/crossbow.py \
+      --queue-path . \
+      --queue-remote https://github.com/kou/crossbow.git \
+      upload-artifacts \
+      --pattern "**/*.rpm" \
+      --sha build-172-travis-centos-7-aarch64 \
+      --tag build-172-travis-centos-7-aarch64
