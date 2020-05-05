@@ -1,0 +1,20 @@
+!Job
+target: !Target
+  head: 181ec6bbe432da182ed292c2a530b91cd7b41ed2
+  email: kou@clear-code.com
+  branch: packaging-nuget-crossbow
+  remote: https://github.com/kou/arrow.git
+  version: 0.17.1-dev123
+  no_rc_version: 0.17.1-dev123
+tasks:
+  nuget: !Task
+    ci: github
+    template: nuget-packages/github.linux.yml
+    artifacts:
+    - Apache.Arrow.0.17.1-dev123.nupkg
+    - Apache.Arrow.0.17.1-dev123.snupkg
+    params:
+      run: ubuntu-csharp
+    branch: build-178-github-nuget
+    commit: a5e0f5fe19aad4f5c1345d94a04786b8abcf2a5f
+branch: build-178
