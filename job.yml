@@ -1,0 +1,20 @@
+!Job
+target: !Target
+  head: 71d9e1b79dfbfac7d0308e0871603cbdc5eb0bd7
+  email: kou@clear-code.com
+  branch: ci-homebrew
+  remote: https://github.com/kou/arrow.git
+  version: 1.1.0.dev486
+  no_rc_version: 1.1.0.dev486
+  no_rc_semver_version: 1.1.0-dev486
+tasks:
+  homebrew-cpp: !Task
+    ci: travis
+    template: homebrew-formulae/travis.osx.yml
+    artifacts: []
+    params:
+      formula: apache-arrow.rb
+
+    branch: build-190-travis-homebrew-cpp
+    commit: 923a237bd3cc7a120c7135f36e1836b9978a4e4d
+branch: build-190
