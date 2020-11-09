@@ -1,0 +1,21 @@
+!Job
+target: !Target
+  head: 5ed12f0f445a257f504871a2553280ae5c4b7f49
+  email: kou@clear-code.com
+  branch: ci-wheel-windows-github-actions
+  remote: https://github.com/kou/arrow.git
+  version: 2.1.0.dev131
+  no_rc_version: 2.1.0.dev131
+  no_rc_semver_version: 2.1.0-dev131
+tasks:
+  wheel-win-cp36m: !Task
+    ci: github
+    template: python-wheels/github.win.yml
+    artifacts:
+    - pyarrow-2.1.0.dev131-cp36-cp36m-win_amd64.whl
+    params:
+      python_version: 3.6
+    branch: build-191-github-wheel-win-cp36m
+    commit: 299e02c79690cac06ddc1c541efa8dadcce062b3
+params: {}
+branch: build-191
