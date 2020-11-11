@@ -1,0 +1,39 @@
+!Job
+target: !Target
+  head: 3488e1c6fc6b6d5393daa26549a3ea023a627512
+  email: kou@clear-code.com
+  branch: arrow-10224
+  remote: https://github.com/terencehonles/arrow.git
+  version: 2.1.0.dev141
+  no_rc_version: 2.1.0.dev141
+  no_rc_semver_version: 2.1.0-dev141
+tasks:
+  wheel-win-cp36m: !Task
+    ci: github
+    template: python-wheels/github.win.yml
+    artifacts:
+    - pyarrow-2.1.0.dev141-cp36-cp36m-win_amd64.whl
+    params:
+      python_version: 3.6
+    branch: build-207-github-wheel-win-cp36m
+    commit: 87a18b92a46a1c0c8275e44a707d9090fd872aeb
+  wheel-win-cp37m: !Task
+    ci: github
+    template: python-wheels/github.win.yml
+    artifacts:
+    - pyarrow-2.1.0.dev141-cp37-cp37m-win_amd64.whl
+    params:
+      python_version: 3.7
+    branch: build-207-github-wheel-win-cp37m
+    commit: 77409a5151e7b7cc50eef45b2dfae5abff79b86b
+  wheel-win-cp38: !Task
+    ci: github
+    template: python-wheels/github.win.yml
+    artifacts:
+    - pyarrow-2.1.0.dev141-cp38-cp38-win_amd64.whl
+    params:
+      python_version: 3.8
+    branch: build-207-github-wheel-win-cp38
+    commit: 6b5b008d0a006f432205e19d0531e7c475c38bf9
+params: {}
+branch: build-207
