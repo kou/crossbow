@@ -1,0 +1,21 @@
+!Job
+target: !Target
+  head: e59220cb823b5f9444487e5d0dc1155e81d81241
+  email: kou@clear-code.com
+  branch: crossbow-test
+  remote: https://github.com/kou/arrow.git
+  version: 2.1.0.dev133
+  no_rc_version: 2.1.0.dev133
+  no_rc_semver_version: 2.1.0-dev133
+tasks:
+  wheel-win-cp36m: !Task
+    ci: github
+    template: python-wheels/github.win.yml
+    artifacts:
+    - pyarrow-2.1.0.dev133-cp36-cp36m-win_amd64.whl
+    params:
+      python_version: 3.6
+    branch: build-210-github-wheel-win-cp36m
+    commit: 21c1ec6717de8c271120e6ef3e89318153efd673
+params: {}
+branch: build-210
