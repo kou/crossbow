@@ -1,0 +1,88 @@
+!Job
+target: !Target
+  head: ef0feb2c9c959681d8a105cbadc1ae6580789e69
+  email: kou@clear-code.com
+  branch: master
+  remote: https://github.com/kou/arrow.git
+  version: 2.1.0.dev139
+  no_rc_version: 2.1.0.dev139
+  no_rc_semver_version: 2.1.0-dev139
+tasks:
+  debian-stretch-amd64: !Task
+    ci: github
+    template: linux-packages/github.linux.amd64.yml
+    artifacts:
+    - apache-arrow-archive-keyring_2.1.0.dev139-1.debian.tar.xz
+    - apache-arrow-archive-keyring_2.1.0.dev139-1.dsc
+    - apache-arrow-archive-keyring_2.1.0.dev139-1_all.deb
+    - apache-arrow-archive-keyring_2.1.0.dev139.orig.tar.gz
+    - apache-arrow_2.1.0.dev139-1.debian.tar.xz
+    - apache-arrow_2.1.0.dev139-1.dsc
+    - apache-arrow_2.1.0.dev139.orig.tar.gz
+    - gir1.2-arrow-1.0_2.1.0.dev139-1_[a-z0-9]+.deb
+    - gir1.2-arrow-cuda-1.0_2.1.0.dev139-1_[a-z0-9]+.deb
+    - gir1.2-gandiva-1.0_2.1.0.dev139-1_[a-z0-9]+.deb
+    - gir1.2-parquet-1.0_2.1.0.dev139-1_[a-z0-9]+.deb
+    - gir1.2-plasma-1.0_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-glib-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-glib-doc_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-glib300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libarrow-glib300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-cuda-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libarrow-cuda-glib300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-cuda300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libarrow-cuda300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-dataset-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-dataset-glib-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-dataset-glib-doc_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-dataset-glib300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libarrow-dataset-glib300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-dataset300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libarrow-dataset300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-flight-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-flight300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libarrow-flight300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-python-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow-python300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libarrow-python300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libarrow300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libarrow300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libgandiva-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libgandiva-glib-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libgandiva-glib-doc_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libgandiva-glib300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libgandiva-glib300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libgandiva300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libgandiva300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libparquet-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libparquet-glib-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libparquet-glib-doc_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libparquet-glib300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libparquet-glib300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libparquet300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libparquet300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libplasma-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libplasma-glib-dev_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libplasma-glib-doc_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libplasma-glib300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libplasma-glib300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - libplasma300-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - libplasma300_2.1.0.dev139-1_[a-z0-9]+.deb
+    - plasma-store-server-dbgsym_2.1.0.dev139-1_[a-z0-9]+.d?deb
+    - plasma-store-server_2.1.0.dev139-1_[a-z0-9]+.deb
+    params:
+      build_task: apt:build
+      target: debian-stretch
+      upload_extensions:
+      - .ddeb
+      - .deb
+      - .debian.tar.xz
+      - .dsc
+      - .orig.tar.gz
+    branch: build-209-github-debian-stretch-amd64
+    commit: a0e4c9389160f3bc86fe16b871b77a44505a3e14
+params: {}
+branch: build-209
