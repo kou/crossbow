@@ -1,0 +1,20 @@
+!Job
+target: !Target
+  head: 56a4a87ad10a34c75bb602e6c8a43aa79a181670
+  email: kou@clear-code.com
+  branch: packaging-python-sdist
+  remote: https://github.com/kou/arrow.git
+  version: 2.1.0.dev417
+  no_rc_version: 2.1.0.dev417
+  no_rc_semver_version: 2.1.0-dev417
+tasks:
+  sdist: !Task
+    ci: github
+    template: python-sdists/github.yml
+    artifacts:
+    - pyarrow-2.1.0.dev417.tar.gz
+    params: {}
+    branch: build-229-github-sdist
+    commit: 6a00d5dbbc5573b693a7503ae55bead4cd65afc9
+params: {}
+branch: build-229
