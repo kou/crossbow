@@ -1,0 +1,108 @@
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# NOTE: must set "Crossbow" as name to have the badge links working in the
+# github comment reports!
+name: Crossbow
+
+on:
+  push:
+    branches:
+      - "*-github-*"
+
+jobs:
+  build:
+    name: "Build sdist"
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Arrow
+        run: |
+          git clone --no-checkout https://github.com/kou/arrow.git arrow
+          git -C arrow config core.symlinks true
+          git -C arrow fetch -t https://github.com/kou/arrow.git packaging-python-sdist
+          git -C arrow checkout FETCH_HEAD
+          git -C arrow submodule update --init --recursive
+      - name: Fetch Submodules and Tags
+        run: cd arrow && ci/scripts/util_checkout.sh
+      - name: Install packages
+        run: |
+          sudo apt update
+          sudo apt install -y -V \
+            libgit2-dev
+          sudo pip3 install \
+            --requirement arrow/python/requirements-build.txt \
+            --requirement arrow/dev/tasks/requirements-crossbow.txt
+      - name: Build sdist
+        run: |
+          cd arrow/python
+          python3 setup.py sdist
+        env:
+          SETUPTOOLS_SCM_PRETEND_VERSION: 2.1.0.dev417
+      
+      - name: Upload artifacts
+        shell: bash
+        run: |
+          python3 arrow/dev/tasks/crossbow.py \
+            --queue-path . \
+            --queue-remote https://github.com/kou/crossbow.git \
+            upload-artifacts \
+            --pattern "arrow/python/dist/*.tar.gz" \
+            --sha build-231-github-sdist \
+            --tag build-231-github-sdist
+        env:
+          CROSSBOW_GITHUB_TOKEN: ${{ secrets.CROSSBOW_GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: sdist
+          path: arrow/python/dist/
+
+  test-ubuntu:
+    name: "Test on Ubuntu"
+    needs:
+      - build
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: sdist
+      - name: Checkout Arrow
+        run: |
+          git clone --no-checkout https://github.com/kou/arrow.git arrow
+          git -C arrow config core.symlinks true
+          git -C arrow fetch -t https://github.com/kou/arrow.git packaging-python-sdist
+          git -C arrow checkout FETCH_HEAD
+          git -C arrow submodule update --init --recursive
+      - name: Fetch Submodules and Tags
+        run: cd arrow && ci/scripts/util_checkout.sh
+      - name: Test
+        run: |
+          arrow/dev/tasks/python-sdists/test.ubuntu.sh
+          sudo apt install -y -V \
+            cmake \
+            ninja-build
+      - name: Install Arrow C++
+        run: |
+          cmake \
+            -B arrow/cpp.build \
+            -G Ninja \
+            -S arrow/cpp
+            -DARROW_PYTHON_
+          ninja -C arrow/cpp.build
+          sudo ninja -C arrow/cpp.build install
+      - name: Install sdist
+        run: |
+          sudo python3 install arrow/python/dist/*.tar.gz
