@@ -1,0 +1,100 @@
+!Job
+target: !Target
+  head: 1402b06f96aed2b342c57e56bbfed77fa95fd812
+  email: kou@clear-code.com
+  branch: wheel-macos-grpc
+  remote: https://github.com/kou/arrow.git
+  version: 2.1.0.dev609
+  no_rc_version: 2.1.0.dev609
+  no_rc_semver_version: 2.1.0-dev609
+tasks:
+  wheel-osx-high-sierra-cp37m: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-2.1.0.dev609-cp37-cp37m-macosx_10_13_x86_64.whl
+    params:
+      python_version: 3.7
+      macos_deployment_target: 10.13
+      arrow_s3: ON
+    branch: build-237-github-wheel-osx-high-sierra-cp37m
+    commit: bc36027f25fd2f7cb74a72c5f80208bd8c325df1
+  wheel-osx-mavericks-cp36m: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-2.1.0.dev609-cp36-cp36m-macosx_10_9_x86_64.whl
+    params:
+      python_version: 3.6
+      macos_deployment_target: 10.9
+      arrow_s3: OFF
+    branch: build-237-github-wheel-osx-mavericks-cp36m
+    commit: 2a26ba30ec5b10d42e9d58036a3bd569279469cb
+  wheel-osx-mavericks-cp39: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-2.1.0.dev609-cp39-cp39-macosx_10_9_x86_64.whl
+    params:
+      python_version: 3.9
+      macos_deployment_target: 10.9
+      arrow_s3: OFF
+    branch: build-237-github-wheel-osx-mavericks-cp39
+    commit: 238c0da97f5d805e3f571e9bac1f88b5760325fd
+  wheel-osx-mavericks-cp38: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-2.1.0.dev609-cp38-cp38-macosx_10_9_x86_64.whl
+    params:
+      python_version: 3.8
+      macos_deployment_target: 10.9
+      arrow_s3: OFF
+    branch: build-237-github-wheel-osx-mavericks-cp38
+    commit: a1f8bbb1063d8a1478b2bfcf8b6bc33aec99082d
+  wheel-osx-mavericks-cp37m: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-2.1.0.dev609-cp37-cp37m-macosx_10_9_x86_64.whl
+    params:
+      python_version: 3.7
+      macos_deployment_target: 10.9
+      arrow_s3: OFF
+    branch: build-237-github-wheel-osx-mavericks-cp37m
+    commit: 3b3fdf9ef24149763c686ec3997931be65f9c14a
+  wheel-osx-high-sierra-cp38: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-2.1.0.dev609-cp38-cp38-macosx_10_13_x86_64.whl
+    params:
+      python_version: 3.8
+      macos_deployment_target: 10.13
+      arrow_s3: ON
+    branch: build-237-github-wheel-osx-high-sierra-cp38
+    commit: 2dbbdc95fb908576a5d9f811226fbf498a6d7c3d
+  wheel-osx-high-sierra-cp39: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-2.1.0.dev609-cp39-cp39-macosx_10_13_x86_64.whl
+    params:
+      python_version: 3.9
+      macos_deployment_target: 10.13
+      arrow_s3: ON
+    branch: build-237-github-wheel-osx-high-sierra-cp39
+    commit: d133709f7999ef25fbd08f08052477548aa19846
+  wheel-osx-high-sierra-cp36m: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-2.1.0.dev609-cp36-cp36m-macosx_10_13_x86_64.whl
+    params:
+      python_version: 3.6
+      macos_deployment_target: 10.13
+      arrow_s3: ON
+    branch: build-237-github-wheel-osx-high-sierra-cp36m
+    commit: 24d36031096feda7f2642a54b00878485e6426bc
+params: {}
+branch: build-237
