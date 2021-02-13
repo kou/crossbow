@@ -1,0 +1,20 @@
+!Job
+target: !Target
+  head: 4291c5a8b272d0f4bcac3897cc826146d178f827
+  email: kou@clear-code.com
+  branch: ci-gandiva-jar-ubuntu
+  remote: https://github.com/kou/arrow.git
+  version: 3.1.0.dev181
+  no_rc_version: 3.1.0.dev181
+  no_rc_semver_version: 3.1.0-dev181
+tasks:
+  gandiva-jar-ubuntu: !Task
+    ci: github
+    template: gandiva-jars/github.linux.yml
+    artifacts:
+    - arrow-gandiva-3.1.0.dev181-SNAPSHOT.jar
+    params: {}
+    branch: build-247-github-gandiva-jar-ubuntu
+    commit: fa332beac4f596035aef30a4f5426a6792238b8e
+params: {}
+branch: build-247
