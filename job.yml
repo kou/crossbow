@@ -1,0 +1,19 @@
+!Job
+target: !Target
+  head: ff5cb47a208ba1b21b1dbec9d58f05ba4e1ed111
+  email: kou@clear-code.com
+  branch: ci-conda-clean-update
+  remote: https://github.com/kou/arrow.git
+  version: 3.1.0.dev188
+  no_rc_version: 3.1.0.dev188
+  no_rc_semver_version: 3.1.0-dev188
+tasks:
+  conda-clean: !Task
+    ci: azure
+    template: conda-recipes/azure.clean.yml
+    artifacts: []
+    params: {}
+    branch: build-250-azure-conda-clean
+    commit: 734c4843a4d7d88e0dbfebeea330f52c2d4627ef
+params: {}
+branch: build-250
