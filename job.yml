@@ -1,0 +1,64 @@
+!Job
+target: !Target
+  head: 35ba57bb0288026b630254a825134f850a7b931b
+  email: kou@clear-code.com
+  branch: wheel-macos-arm64
+  remote: https://github.com/kou/arrow.git
+  version: 3.1.0.dev511
+  no_rc_version: 3.1.0.dev511
+  no_rc_semver_version: 3.1.0-dev511
+tasks:
+  wheel-osx-big-sur-cp39-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev511-cp39-cp39-macosx_11_0_arm64.whl
+    params:
+      arrow_s3: ON
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.9
+      vcpkg_triplet: arm64-osx-static-release
+    branch: build-252-github-wheel-osx-big-sur-cp39-arm64
+    commit: 3ffafa26df49ba369ce0f8fbb13ae51ed3f66e72
+  wheel-osx-big-sur-cp36m-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev511-cp36-cp36m-macosx_11_0_arm64.whl
+    params:
+      arrow_s3: ON
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.6
+      vcpkg_triplet: x64-osx-static-release
+    branch: build-252-github-wheel-osx-big-sur-cp36m-arm64
+    commit: ed9ea4560d25c0a03b28339b2fba4e26bf24f88b
+  wheel-osx-big-sur-cp38-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev511-cp38-cp38-macosx_11_0_arm64.whl
+    params:
+      arrow_s3: ON
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.8
+      vcpkg_triplet: arm64-osx-static-release
+    branch: build-252-github-wheel-osx-big-sur-cp38-arm64
+    commit: 119ca622c567057b85a04e1e1c0bf9c31c73545d
+  wheel-osx-big-sur-cp37m-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev511-cp37-cp37m-macosx_11_0_arm64.whl
+    params:
+      arrow_s3: ON
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.7
+      vcpkg_triplet: arm64-osx-static-release
+    branch: build-252-github-wheel-osx-big-sur-cp37m-arm64
+    commit: f4f49ce31c1c1cc817c306f80c2a6259e6935414
+params: {}
+branch: build-252
