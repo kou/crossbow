@@ -1,0 +1,72 @@
+!Job
+target: !Target
+  head: d45f951cf837be4827473436d8f6af94bdbdb85d
+  email: kou@clear-code.com
+  branch: wheel-macos-arm64
+  remote: https://github.com/kou/arrow.git
+  version: 3.1.0.dev511
+  no_rc_version: 3.1.0.dev511
+  no_rc_semver_version: 3.1.0-dev511
+tasks:
+  wheel-osx-big-sur-cp36m-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev511-cp36-cp36m-macosx_11_0_arm64.whl
+    params:
+      arrow_jemalloc: OFF
+      arrow_s3: ON
+      cmake_apple_silicon_processor: arm64
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.6
+      vcpkg_triplet: x64-osx-static-release
+    branch: build-257-github-wheel-osx-big-sur-cp36m-arm64
+    commit: 986ae720c193892964d4193bf9f83435ef21c73a
+  wheel-osx-big-sur-cp38-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev511-cp38-cp38-macosx_11_0_arm64.whl
+    params:
+      arrow_jemalloc: OFF
+      arrow_s3: ON
+      cmake_apple_silicon_processor: arm64
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.8
+      vcpkg_triplet: arm64-osx-static-release
+    branch: build-257-github-wheel-osx-big-sur-cp38-arm64
+    commit: e2bbeb7e564d3fc2657dcaaaabb568ad3f8c97fa
+  wheel-osx-big-sur-cp37m-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev511-cp37-cp37m-macosx_11_0_arm64.whl
+    params:
+      arrow_jemalloc: OFF
+      arrow_s3: ON
+      cmake_apple_silicon_processor: arm64
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.7
+      vcpkg_triplet: arm64-osx-static-release
+    branch: build-257-github-wheel-osx-big-sur-cp37m-arm64
+    commit: e390ac10f090ebd1b4de5f719e2baf14f2852a7f
+  wheel-osx-big-sur-cp39-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev511-cp39-cp39-macosx_11_0_arm64.whl
+    params:
+      arrow_jemalloc: OFF
+      arrow_s3: ON
+      cmake_apple_silicon_processor: arm64
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.9
+      vcpkg_triplet: arm64-osx-static-release
+    branch: build-257-github-wheel-osx-big-sur-cp39-arm64
+    commit: e05a1f18bfea45ab24cbc084a3d62b14aa21445d
+params: {}
+branch: build-257
