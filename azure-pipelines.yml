@@ -1,19 +1,59 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
-trigger:
-- master
+jobs:
+- job: linux
+  pool:
+    vmImage: ubuntu-16.04
+  timeoutInMinutes: 360
 
-pool:
-  vmImage: 'ubuntu-latest'
+  variables:
+    CONFIG: linux_cuda_compiler_versionNonepython3.7.____cpython
+    R_CONFIG: linux_64_r_base4.0
+    ARROW_VERSION: 3.1.0.dev592
+    UPLOAD_PACKAGES: False
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  steps:
+  # configure qemu binfmt-misc running.  This allows us to run docker containers
+  # embedded qemu-static
+  - script: |
+      docker run --rm --privileged multiarch/qemu-user-static:register --reset --credential yes
+      ls /proc/sys/fs/binfmt_misc/
+    displayName: Configure binfmt_misc
+    condition: not(startsWith(variables['CONFIG'], 'linux_64'))
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - script: |
+      git clone --no-checkout https://github.com/kou/arrow.git arrow
+      git -C arrow fetch -t https://github.com/kou/arrow.git cpp-avoid-needless-c-ares-detection
+      git -C arrow checkout FETCH_HEAD
+      git -C arrow submodule update --init --recursive
+    displayName: Clone arrow
+
+
+  - task: CondaEnvironment@1
+    inputs:
+      packageSpecs: 'anaconda-client shyaml'
+      installOptions: '-c conda-forge'
+      updateConda: false
+
+  - script: |
+      mkdir build_artifacts
+      CI=azure arrow/dev/tasks/conda-recipes/run_docker_build.sh $(pwd)/build_artifacts
+    displayName: Run docker build
+
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.8'
+  - script: pip install -e arrow/dev/archery[crossbow]
+    displayName: Install Crossbow
+  - bash: |
+      archery crossbow \
+        --queue-path $(pwd) \
+        --queue-remote https://github.com/kou/crossbow.git \
+        upload-artifacts \
+        --sha build-274-azure-conda-linux-gcc-py37-cpu-r40 \
+        --tag build-274-azure-conda-linux-gcc-py37-cpu-r40 \
+        --pattern "build_artifacts/linux-64/*.tar.bz2"
+    env:
+      CROSSBOW_GITHUB_TOKEN: $(CROSSBOW_GITHUB_TOKEN)
+    displayName: Upload packages as a GitHub release
+
+  
