@@ -1,0 +1,26 @@
+!Job
+target: !Target
+  head: 4bdedad5e57b691fbaa881319b25b4e8a1fef354
+  email: kou@clear-code.com
+  branch: wheel-macos-arm64
+  remote: https://github.com/kou/arrow.git
+  version: 3.1.0.dev584
+  no_rc_version: 3.1.0.dev584
+  no_rc_semver_version: 3.1.0-dev584
+tasks:
+  wheel-osx-big-sur-cp39-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev584-cp39-cp39-macosx_11_0_arm64.whl
+    params:
+      arrow_jemalloc: OFF
+      arrow_s3: ON
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.9
+      vcpkg_triplet: arm64-osx-static-cross-release
+    branch: build-270-github-wheel-osx-big-sur-cp39-arm64
+    commit: 9e649d3ac3bae30d5c3d28d4a230bba53f3459b6
+params: {}
+branch: build-270
