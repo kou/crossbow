@@ -1,0 +1,28 @@
+!Job
+target: !Target
+  head: dc51a6f62df80c961b48db468670d0453470f07a
+  email: kou@clear-code.com
+  branch: wheel-macos-arm64
+  remote: https://github.com/kou/arrow.git
+  version: 3.1.0.dev594
+  no_rc_version: 3.1.0.dev594
+  no_rc_semver_version: 3.1.0-dev594
+tasks:
+  wheel-osx-big-sur-cp39-arm64: !Task
+    ci: github
+    template: python-wheels/github.osx.yml
+    artifacts:
+    - pyarrow-3.1.0.dev594-cp39-cp39-macosx_11_0_arm64.whl
+    params:
+      # Disable jemalloc for arm64 because the latest release doesn't
+      # support arm64. See also: https://github.com/jemalloc/jemalloc/pull/2012
+      arrow_jemalloc: OFF
+      arrow_s3: ON
+      macos_deployment_target: '11.0'
+      platform: arm64
+      python_version: 3.9
+      vcpkg_triplet: arm64-osx-static-cross-release
+    branch: build-276-github-wheel-osx-big-sur-cp39-arm64
+    commit: b5a7843141f8c7bda761b96f1e1f03423f58e86b
+params: {}
+branch: build-276
