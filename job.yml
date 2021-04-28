@@ -1,0 +1,74 @@
+!Job
+target: !Target
+  head: b67a6a564e2e7e16b0eb4a73a34b51a5c3979182
+  email: kou@clear-code.com
+  branch: packaging-ubuntu-21.04
+  remote: https://github.com/kou/arrow.git
+  version: 3.1.0.dev750
+  no_rc_version: 3.1.0.dev750
+  no_rc_semver_version: 3.1.0-dev750
+tasks:
+  ubuntu-hirsute-amd64: !Task
+    ci: github
+    template: linux-packages/github.linux.amd64.yml
+    artifacts:
+    - apache-arrow-apt-source_3.1.0.dev750-1.debian.tar.xz
+    - apache-arrow-apt-source_3.1.0.dev750-1.dsc
+    - apache-arrow-apt-source_3.1.0.dev750-1_all.deb
+    - apache-arrow-apt-source_3.1.0.dev750.orig.tar.gz
+    - apache-arrow_3.1.0.dev750-1.debian.tar.xz
+    - apache-arrow_3.1.0.dev750-1.dsc
+    - apache-arrow_3.1.0.dev750.orig.tar.gz
+    - gir1.2-arrow-1.0_3.1.0.dev750-1_[a-z0-9]+.deb
+    - gir1.2-arrow-cuda-1.0_3.1.0.dev750-1_[a-z0-9]+.deb
+    - gir1.2-gandiva-1.0_3.1.0.dev750-1_[a-z0-9]+.deb
+    - gir1.2-parquet-1.0_3.1.0.dev750-1_[a-z0-9]+.deb
+    - gir1.2-plasma-1.0_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-glib-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-glib-doc_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-glib500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-cuda-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-cuda-glib500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-cuda500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-dataset-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-dataset-glib-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-dataset-glib-doc_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-dataset-glib500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-dataset500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-flight-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-flight500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-python-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow-python500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libarrow500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libgandiva-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libgandiva-glib-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libgandiva-glib-doc_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libgandiva-glib500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libgandiva500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libparquet-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libparquet-glib-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libparquet-glib-doc_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libparquet-glib500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libparquet500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libplasma-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libplasma-glib-dev_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libplasma-glib-doc_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libplasma-glib500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - libplasma500_3.1.0.dev750-1_[a-z0-9]+.deb
+    - plasma-store-server-dbgsym_3.1.0.dev750-1_[a-z0-9]+.d?deb
+    - plasma-store-server_3.1.0.dev750-1_[a-z0-9]+.deb
+    params:
+      target: ubuntu-hirsute
+      task_namespace: apt
+      upload_extensions:
+      - .ddeb
+      - .deb
+      - .debian.tar.xz
+      - .dsc
+      - .orig.tar.gz
+    branch: build-278-github-ubuntu-hirsute-amd64
+    commit: bf61899651ab2a2ab25c939d79aa10915047d26d
+params: {}
+branch: build-278
