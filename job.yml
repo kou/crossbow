@@ -1,0 +1,20 @@
+!Job
+target: !Target
+  head: 0d3fa87f4a8acce6513c2eab64d2fa67e5182df1
+  email: kou@clear-code.com
+  branch: glib-ci-gi-version
+  remote: https://github.com/kou/arrow.git
+  version: 5.0.0.dev396
+  no_rc_version: 5.0.0.dev396
+  no_rc_semver_version: 5.0.0-dev396
+tasks:
+  test-debian-c-glib: !Task
+    ci: github
+    template: docker-tests/github.linux.yml
+    artifacts: []
+    params:
+      image: debian-c-glib
+    branch: build-306-github-test-debian-c-glib
+    commit: a16aa737119878d26da206ff431758d725c019b7
+params: {}
+branch: build-306
