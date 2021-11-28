@@ -1,0 +1,24 @@
+!Job
+target: !Target
+  head: c3499b87dac79ae01a6e379d49e253cd63fa6b26
+  email: kou@clear-code.com
+  branch: ci-docs-upload
+  remote: https://github.com/kou/arrow.git
+  version: 7.0.0.dev199
+  no_rc_version: 7.0.0.dev199
+  no_rc_semver_version: 7.0.0-dev199
+tasks:
+  test-ubuntu-default-docs: !Task
+    ci: azure
+    template: docker-tests/azure.linux.yml
+    artifacts: []
+    params:
+      artifacts: build/docs.tar.gz
+      run: -v $PWD/build/:/build/ ubuntu-docs
+
+  ############################## Fuzz tests #################################
+
+    branch: build-331-azure-test-ubuntu-default-docs
+    commit: 34c6ff2cf5990b4feeb5572f4ef9d5ce5364b805
+params: {}
+branch: build-331
