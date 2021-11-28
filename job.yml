@@ -1,0 +1,23 @@
+!Job
+target: !Target
+  head: 02923f26fe2616346d1ca6dbf5a0e9d6c7f0c818
+  email: kou@clear-code.com
+  branch: ci-docs-ubuntu-21.10
+  remote: https://github.com/kou/arrow.git
+  version: 7.0.0.dev199
+  no_rc_version: 7.0.0.dev199
+  no_rc_semver_version: 7.0.0-dev199
+tasks:
+  test-ubuntu-21.10-docs: !Task
+    ci: azure
+    template: docker-tests/azure.linux.yml
+    artifacts: []
+    params:
+      env:
+        UBUNTU: '21.10'
+      run: ubuntu-docs
+
+    branch: build-332-azure-test-ubuntu-21.10-docs
+    commit: 7f3b892d298eb1ef65760cde029271939a7234f6
+params: {}
+branch: build-332
