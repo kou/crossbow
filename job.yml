@@ -1,0 +1,24 @@
+!Job
+target: !Target
+  head: f4000985ec047f5808c3067d9a845e0a651e110b
+  email: kou@clear-code.com
+  branch: packaging-linux-verify-artifacts
+  remote: https://github.com/kou/arrow.git
+  github_repo: kou/arrow
+  version: 9.0.0.dev585
+  no_rc_version: 9.0.0.dev585
+  no_rc_semver_version: 9.0.0-dev585
+tasks:
+  almalinux-8-amd64: !Task
+    ci: github
+    template: linux-packages/github.linux.amd64.yml
+    artifacts: []
+    params:
+      target: almalinux-8
+      task_namespace: yum
+      upload_extensions:
+      - .rpm
+    branch: build-344-github-almalinux-8-amd64
+    commit: bcbe6abcf36cc13a477f15569879441b234aa394
+params: {}
+branch: build-344
